@@ -1,0 +1,66 @@
+        <nav class="sidenav left" role="navigation">
+            <ul class="menu">
+                <li class="user">
+                    <div class="search-block"><img src="../img/logo_Comprarama.png" width="100%"></div>
+                </li>
+
+                <li>
+                    <a class="btn-primary" href="?app=inicio">
+                        Crear un anuncio
+                        <div>
+                            <img src="assets/img/icons/note.png" alt="">
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="?app=inicio">
+                        Inicio
+                        <div>
+                            <img src="assets/img/icons/home.png" alt="">
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        Anuncios
+                        <div>
+                            <img src="assets/img/icons/layers.png" alt="">
+
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="?m=mensaje">
+                        Mensajes
+                        <div>
+                            <img src="assets/img/icons/mailopen.png" alt="">
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        Estadisticas
+                        <div>
+                            <img src="assets/img/icons/charts.png" alt="">
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="?m=cfg">
+                        Configuración
+                        <div>
+                            <img src="assets/img/icons/cog.png" alt="">
+                        </div>
+                    </a>
+                </li>
+                <li class="logout" style="position: relative; border-top-width: 0px;">
+                    <a href="login.html">
+                        Salir 
+                        <div>
+                            <img src="assets/img/icons/off.png" alt="">
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>

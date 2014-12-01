@@ -1,0 +1,18 @@
+        <section class="login">
+	        <div class="login-panel">
+	        <h3 class="text-muted">Login</h3>
+	        	<form role="form" action="index.html">
+		        	<input class="form-control" placeholder="Username" type="text">
+		        	<div class="input-group">
+				      <input type="password" class="form-control" placeholder="Password">
+				      <span class="input-group-btn">
+				        <button class="btn btn-default btn-lg" type="submit">Login</button>
+				      </span>
+				    </div>
+	        	</form>
+	        	<hr />
+	        	<p class="text-muted text-center"><a href="#">Forgot your password?</a> no worries!</p>
+	        	<p class="text-muted text-center">Or</p>
+	        	<p class="text-muted text-center">Don't have an account yet? <a href="register.html">Create an account</a></p>
+	        </div>
+        </section>
