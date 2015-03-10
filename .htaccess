@@ -1,3 +1,0 @@
-RewriteEngine On
-RewriteRule ^([a-zA-Z0-9-]+).asx$ index.php?urlVolante=$1 [L,NC]
-RewriteRule ^([0-9]+)-([a-zA-Z0-9.ñ-]+)$ index.php?id_Anuncio=$1 [L,NC]
