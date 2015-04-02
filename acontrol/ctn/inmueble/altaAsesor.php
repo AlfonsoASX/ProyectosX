@@ -30,7 +30,7 @@ else
 </style>
 
 <p>Dar de alta asesor</p>
-<form action="/acontrol/ctn/inmueble/subirFotoAsesor.php?id=<?php echo $id_Asesor; ?>" method="post"  enctype="multipart/form-data" name="form2" target="subirFotoAsesor" id="form2">
+<form action="ctn/inmueble/subirFotoAsesor.php?id=<?php echo $id_Asesor; ?>" method="post"  enctype="multipart/form-data" name="form2" target="subirFotoAsesor" id="form2">
   Agregar fotograf&iacute;a:<br />
 <input type="file" name="foto" id="foto" onchange="javascrip:document.form2.submit()" /></form>
 <iframe name="subirFotoAsesor" width="500px" height="20px" scrolling="no" frameborder="0"></iframe>

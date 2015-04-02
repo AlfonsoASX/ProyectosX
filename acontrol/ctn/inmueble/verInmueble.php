@@ -3,7 +3,7 @@ $contRegistros=-1;
 
 foreach($_GET as $nombre_campo => $valor){ 
 	$contRegistros++;
-	if($_GET["status"]!=""&&$nombre_campo!="status"&&$nombre_campo!="ayt")
+	if(!empty($_GET["status"])&&$nombre_campo!="status"&&$nombre_campo!="ayt")
 	{
 		$sql="UPDATE  `Inmueble` SET  `status` =  '".$_GET["status"]."' WHERE  `Inmueble`.`id` =".$nombre_campo;
 		$rs= mysqli_query($db,$sql);
@@ -13,18 +13,23 @@ foreach($_GET as $nombre_campo => $valor){
 ?>
 <div id="barraCongelad" style="height:40px;">
 <a class="boton" href="javascript:AS3Wxmlhttp('ctn/inmueble/verInmueble.php?status=3&'+urlGlobal,'contenido');limpiarUrlGlobal();">
-	<img src="/acontrol/img/borrar.png" width="14" height="15" /> Borrar</a>
+	<img src="img/borrar.png" width="14" height="15" /> Borrar</a>
 <a class="boton" href="javascript:AS3Wxmlhttp('ctn/inmueble/verInmueble.php?status=2&'+urlGlobal,'contenido');limpiarUrlGlobal();">
-	<img src="/acontrol/img/rojoSemaforo.png" width="15" height="15" /> Suspender</a>
+	<img src="img/rojoSemaforo.png" width="15" height="15" /> Suspender</a>
 <a class="boton" href="javascript:AS3Wxmlhttp('ctn/inmueble/verInmueble.php?status=0&'+urlGlobal,'contenido');limpiarUrlGlobal();">
-	<img src="/acontrol/img/amarilloSemaforo.png" width="15" height="15" /> Interno</a>
+	<img src="img/amarilloSemaforo.png" width="15" height="15" /> Interno</a>
 <a class="boton" href="javascript:AS3Wxmlhttp('ctn/inmueble/verInmueble.php?status=1&'+urlGlobal,'contenido');limpiarUrlGlobal();">
-	<img src="/acontrol/img/verdeSemaforo.png" width="15" height="15" /> Externo</a>
+	<img src="img/verdeSemaforo.png" width="15" height="15" /> Externo</a>
 	
 
 </div><br />
 
-<input name="q" id="q" value="<?php echo $_GET["q"]; ?>" />
+<input name="q" id="q" value="<?php 
+if(!empty($_GET['q']))
+{
+	echo $_GET["q"];	
+}
+?>" />
 <button type="button" onclick="javascript:AS3Wxmlhttp('ctn/inmueble/verInmueble.php?at=1379998981&q='+$('#q').val(),'contenido');">Buscar...</button>
 
 <div class="cuadro2">
@@ -64,14 +69,14 @@ foreach($_GET as $nombre_campo => $valor){
 	?> /></td>
     <td><div align="center">
       <p><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=4&amp;id_Inmueble=<?php 
-	echo $fl["id"]; ?>','contenido');"><img src="/acontrol/img/editar.png" alt="" width="14" height="15" border="0" />Editar</a></p>
-      <p><a href="/acontrol/ctn/inmueble/ficha.php?as=8&id" target="_blank">Ver ficha</a></p>
+	echo $fl["id"]; ?>','contenido');"><img src="img/editar.png" alt="" width="14" height="15" border="0" />Editar</a></p>
+      <p><a href="ctn/inmueble/ficha.php?as=8&id" target="_blank">Ver ficha</a></p>
     </div>
       <br /></td>
-    <td width="100"><div style="width:100px; overflow:hidden;" align="center"><img src="/publico/<?php echo $fl["fotoURL"]; ?>" height="60"  /></div></td>
+    <td width="100"><div style="width:100px; overflow:hidden;" align="center"><img src="../publico/<?php echo $fl["fotoURL"]; ?>" height="60"  /></div></td>
     <td><div align="center"><b>
       <?php 
-		switch($fl[tipoInmueble])
+		switch($fl['tipoInmueble'])
 		{
 			case 1:
 			echo "bodegas";
@@ -103,13 +108,13 @@ foreach($_GET as $nombre_campo => $valor){
 			default:
 			echo "cualquier tipo de inmueble";
 		}
-		if($fl[operacionInmueble]!="")
+		if($fl['operacionInmueble']!="")
 		{
 			?>
     </b></div></td>
     <td><div align="center"><b>
       <?php 
-			switch($fl[operacionInmueble])
+			switch($fl['operacionInmueble'])
 			{
 				case 1:
 				echo "venta";
@@ -130,13 +135,13 @@ foreach($_GET as $nombre_campo => $valor){
 	switch( $fl["status"])
 	{
 		case 2:
-		?><img src="/acontrol/img/rojoSemaforo.png" width="15" height="15" /><?php 
+		?><img src="img/rojoSemaforo.png" width="15" height="15" /><?php 
 		break;
 		case 0:
-		?><img src="/acontrol/img/amarilloSemaforo.png" width="15" height="15" /><?php 
+		?><img src="img/amarilloSemaforo.png" width="15" height="15" /><?php 
 		break;
 		case 1:
-		?><img src="/acontrol/img/verdeSemaforo.png" width="15" height="15" /><?php 
+		?><img src="img/verdeSemaforo.png" width="15" height="15" /><?php 
 	}
 	?></div></td>
   </tr>
@@ -148,22 +153,22 @@ foreach($_GET as $nombre_campo => $valor){
 <p>Tabla de definiciones</p>
 <table class="tabla1" width="100%" border="0" cellspacing="3" cellpadding="5">
   <tr>
-    <th scope="row"><img src="/acontrol/img/editar.png" width="14" height="15" /></th>
+    <th scope="row"><img src="img/editar.png" width="14" height="15" /></th>
     <td>Editar</td>
     <td>Herramienta que nos permite editar el inmueble</td>
   </tr>
   <tr>
-    <th scope="row"><img src="/acontrol/img/rojoSemaforo.png" width="15" height="15" /></th>
+    <th scope="row"><img src="img/rojoSemaforo.png" width="15" height="15" /></th>
     <td>Suspender</td>
     <td>Nos permite suspender una propiedad temporalmente, no se publicar&aacute;</td>
   </tr>
   <tr>
-    <th scope="row"><img src="/acontrol/img/amarilloSemaforo.png" width="15" height="15" /></th>
+    <th scope="row"><img src="img/amarilloSemaforo.png" width="15" height="15" /></th>
     <td>Interno</td>
     <td>Nos permite dar de alta propiedades que solo queremos que vean socios.</td>
   </tr>
   <tr>
-    <th scope="row"><img src="/acontrol/img/verdeSemaforo.png" alt="" width="15" height="15" /></th>
+    <th scope="row"><img src="img/verdeSemaforo.png" alt="" width="15" height="15" /></th>
     <td>Externo</td>
     <td>-Es visible tanto en el sitio Web como en el sitio interno.</td>
   </tr>

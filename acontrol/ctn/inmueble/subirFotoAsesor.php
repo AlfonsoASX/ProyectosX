@@ -1,12 +1,10 @@
-<style>
-*
-{
-margin:0px;
-}</style>
-<?php include("../../../lib/cfg.php"); if(sesionValida($ASclave,$db)==0) { echo "Sesi&oacute;n finalizada"; } else { 
-	if($_FILES[foto][name]!="")
+<?php 
+include("../../../lib/cfg.php"); 
+
+if(sesionValida($ASclave,$db)==0) { echo "Sesi&oacute;n finalizada"; } else { 
+	if($_FILES['foto']['name']!="")
 	{
-		$res=subirFotoAsesor($_FILES[foto],$_GET["id"]);
+		$res=subirFotoAsesor($_FILES['foto'],$_GET["id"]);
 		echo "La imagen ";
 		switch($res)
 		{
@@ -28,4 +26,8 @@ margin:0px;
 	
 		}
 	}
-} ?>
+} ?><style>
+*
+{
+margin:0px;
+}</style>

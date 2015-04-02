@@ -248,9 +248,12 @@ Tel. Oficina:
 <h2> Detalles del inmueble </h2>
 <?php echo $detalles; ?></div>
 <?php
-$directorio=opendir($_SERVER["DOCUMENT_ROOT"]."/publico"); 
-while (false !== ($archivo = readdir($directorio))) {
 
+$directorio=opendir($_AS['directorioImg']); 
+
+/*
+while (false !== ($archivo = readdir($directorio))) 
+{
 	$validador=explode("___",$archivo);
 	if($validador[0]==$_GET["id"]&&$archivo!=$fotoURL)
 	{
@@ -258,6 +261,7 @@ while (false !== ($archivo = readdir($directorio))) {
 	}
 }
 closedir($directorio); 
+*/
 
 }
 ?>

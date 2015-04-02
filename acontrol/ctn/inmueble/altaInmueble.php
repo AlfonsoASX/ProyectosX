@@ -4,18 +4,21 @@ header ("Cache-Control: no-cache, must-revalidate"); //no guardar en CACHE
 header ("Pragma: no-cache"); //PARANOIA, NO GUARDAR EN CACHE 
 
 include("../../../lib/cfg.php"); if(sesionValida($ASclave,$db)==0) { echo "Sesi&oacute;n finalizada"; } else { 
-if($_GET["valor"]!="")
+if(!empty($_GET["valor"]))
 {
 	$sql="UPDATE Inmueble SET `".$_GET["campo"]."` = '".$_GET["valor"]."' , `fechamodif`= NOW() WHERE id =".$_GET["id_Inmueble"].";";
 	mysqli_query($db,$sql);
 }
-if($_GET["id_Inmueble"]=="")
+if(empty($_GET["id_Inmueble"]))
 {
 	$sql="INSERT INTO `Inmueble` VALUES ('',  '".$ASid."', '', '', '', '', '',  '',  '',  '',  '',  '',  '',  '',  '12',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  NOW(),  '');";
 	mysqli_query($db,$sql);
 	$_GET["id_Inmueble"]=mysqli_insert_id($db);
 }
-if($_GET[a]=="") $_GET[a]=0;
+if(empty($_GET['a'])) 
+{
+    $_GET['a']=0;    
+}
 
 //Recuperar todos los datos de los inmuebles.
 
@@ -30,12 +33,7 @@ if($_GET[a]=="") $_GET[a]=0;
 	}
 
 
-
-
-
-
-
-if($_GET[a]!=12)
+if($_GET['a']!=12)
 {
 ?>
 
@@ -52,25 +50,25 @@ if($_GET[a]!=12)
 </style>
 
 
-<table width="100%" border="0" cellpadding="2" cellspacing="5" background="/acontrol/img/fondoBarraHerramientas.jpg">
-  <tr background="/acontrol/img/fondoBarra2.jpg">
-    <td width="20%" align="center" <?php if($_GET["a"]==0) echo 'background="/acontrol/img/fondoBarraActiva2.jpg"'; ?>>
+<table width="100%" border="0" cellpadding="2" cellspacing="5" background="img/fondoBarraHerramientas.jpg">
+  <tr background="img/fondoBarra2.jpg">
+    <td width="20%" align="center" <?php if($_GET["a"]==0) echo 'background="img/fondoBarraActiva2.jpg"'; ?>>
 
 <a class="BotonBlanco" href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=0&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');"> Clasificaci&oacute;n</a></td>
-    <td width="20%" align="center" <?php if($_GET["a"]==1) echo 'background="/acontrol/img/fondoBarraActiva2.jpg"'; ?>>
+    <td width="20%" align="center" <?php if($_GET["a"]==1) echo 'background="img/fondoBarraActiva2.jpg"'; ?>>
     <a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=1&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');" class="BotonBlanco">Ubicaci&oacute;n</a></td>
-    <td width="20%" align="center" <?php if($_GET["a"]==2) echo 'background="/acontrol/img/fondoBarraActiva2.jpg"'; ?>>
+    <td width="20%" align="center" <?php if($_GET["a"]==2) echo 'background="img/fondoBarraActiva2.jpg"'; ?>>
     <a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=2&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');" class="BotonBlanco">Especificaciones</a></td>
-    <td width="20%" align="center" <?php if($_GET["a"]==3) echo 'background="/acontrol/img/fondoBarraActiva2.jpg"'; ?>>
+    <td width="20%" align="center" <?php if($_GET["a"]==3) echo 'background="img/fondoBarraActiva2.jpg"'; ?>>
     <a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=3&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');" class="BotonBlanco">Fotograf&iacute;a</a></td>
     <td width="20%" height="37" align="center" <?php if($_GET["a"]==4) 
-	echo 'background="/acontrol/img/fondoBarraActiva2.jpg"'; ?>>
+	echo 'background="img/fondoBarraActiva2.jpg"'; ?>>
     <a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=4&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');" class="BotonBlanco">Revisi&oacute;n final</a></td>
   </tr>
 </table>
 <?php
 }
-switch($_GET[a])
+switch($_GET['a'])
 {
 	case 0:
 ?>
@@ -83,7 +81,7 @@ switch($_GET[a])
     {
     ?>
     <div class="bloque" style="height:100px; width:250px;">
-<img src="/publico/Asesor<?php echo $fl["id"]; ?>.jpg" height="50px" /><br />
+<img src="../publico/Asesor<?php echo $fl["id"]; ?>.jpg" height="50px" /><br />
 <br />
 
 <a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=id_Asesor&valor=<?php echo $fl["id"]; ?>&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton" style="font-size:10px; overflow:hidden"><?php echo $fl["nombre"]; ?></a>
@@ -227,7 +225,7 @@ switch($_GET[a])
 </div>
 <br />
 <div id="2_2"><h3>2. Elige la ubicaci&oacute;n del inmueble</h3>
-    <div align="center"><table border="0" cellpadding="0" cellspacing="0" background="/acontrol/img/rosaVientos.png">
+    <div align="center"><table border="0" cellpadding="0" cellspacing="0" background="img/rosaVientos.png">
       <tr>
         <td width="133" height="133">	<div align="center"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=zona&valor=Noroeste&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Noroeste</a></div></td>
         <td width="133">				<div align="center"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=zona&valor=Norte&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Norte</a></div></td>
@@ -1261,7 +1259,7 @@ switch($_GET[a])
 	case 3:
 
 ?>
-<iframe src="/publico/subir.php?id=<?php echo $_GET["id_Inmueble"]; ?>" frameborder="0" marginheight="0" marginwidth="" scrolling="auto" width="90%" height="300px" ></iframe>
+<iframe src="../publico/subir.php?id=<?php echo $_GET["id_Inmueble"]; ?>" frameborder="0" marginheight="0" marginwidth="" scrolling="auto" width="90%" height="300px" ></iframe>
 
 <p align="right"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=4&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');" class="boton">Siguiente</a></p>
 
@@ -1308,7 +1306,9 @@ switch($_GET[a])
 			default:
 			echo "cualquier tipo de inmueble";
 		}
-		if($_GET[operacionInmueble]!="")
+
+
+		if(!empty($_GET['operacionInmueble']))
 		{
 			?> en <?php 
 			echo $db_operacionInmueble;
@@ -1328,7 +1328,7 @@ switch($_GET[a])
 		?> en la ciudad de <?php echo $db_ciudad; ?></h1>
 <table width="100%" border="0" cellspacing="5" cellpadding="5">
   <tr>
-    <td width="355" valign="top" bgcolor="#F0F0F0"><div align="center"><img src="/publico/<?php echo $db_fotoURL; ?>" width="350" /></div></td>
+    <td width="355" valign="top" bgcolor="#F0F0F0"><div align="center"><img src="../publico/<?php echo $db_fotoURL; ?>" width="350" /></div></td>
     <td valign="top"><p><?php echo $db_titulo; ?> - <a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=2&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');">editar</a>
       </p>
     <p><?php echo $db_descripcion; ?></p>
@@ -1339,7 +1339,8 @@ switch($_GET[a])
 <div align="right">
 <a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=3&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');">editar</a></div>
 <?php
-$directorio=opendir($_SERVER["DOCUMENT_ROOT"]."/publico"); 
+$directorio=opendir($_AS['directorioImg']); 
+
 while (false !== ($archivo = readdir($directorio))) {
 
 	$validador=explode("___",$archivo);
@@ -1350,7 +1351,7 @@ while (false !== ($archivo = readdir($directorio))) {
 <div class="bloque" style="height:120px;">		
     <a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=4&campo=fotoURL&valor=<?php 
 	echo $archivo; ?>&id_Inmueble=<?php 
-	echo $_GET["id_Inmueble"]; ?>','contenido');"><img src="/publico/<?php
+	echo $_GET["id_Inmueble"]; ?>','contenido');"><img src="../publico/<?php
 echo $archivo;	
 //	echo $archivoParte["0"];
 	?>" height="100px" hspace="5px" vspace="5px" border="0" /></a></div>
@@ -1358,6 +1359,8 @@ echo $archivo;
 	}
 }
 closedir($directorio); 
+
+
 ?>
 
 <div align="right"> <a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=2&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');">editar</a></div>
@@ -1393,7 +1396,7 @@ if($db_construccion!="") { ?>
   </table>
 </div>
 <?php } 
-if($db_numeroderecamaras!="") { ?>
+if(!empty($db_numeroderecamaras)) { ?>
 <div class="bloque">
   <table border="0" cellpadding="8" cellspacing="3">
     <tr>
