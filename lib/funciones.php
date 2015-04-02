@@ -17,7 +17,7 @@ function sesionValida($clave,$db)
 	$result= mysql_query ($sqlselect,$db);
 	while($fila=mysql_fetch_array($result))
 	{
-	   if($fila[sesion]==$clave)
+	   if($fila['sesion']==$clave)
 	      return(1);
 	}
 	return(0);
@@ -28,7 +28,7 @@ function id_Usuario2nombre($id_Usuario,$db)
 		$result= mysql_query ($sqlselect,$db);
 		while($fila=mysql_fetch_array($result))
 		{
-		   $nombre=$fila[nombre]." ".$fila[apellidos];
+		   $nombre=$fila['nombre']." ".$fila['apellidos'];
 		   return ($nombre);
 		}
 	return(0);
@@ -72,7 +72,7 @@ function nombre($clave,$db)
 		$result= mysql_query ($sqlselect,$db);
 		while($fila=mysql_fetch_array($result))
 		{
-		   $nombre=$fila[nombres]." ".$fila[apellidos];
+		   $nombre=$fila['nombres']." ".$fila['apellidos'];
 		   return ($nombre);
 		}
 	}
@@ -88,7 +88,7 @@ function tipoUsuario($clave,$db)
 		$result= mysql_query ($sqlselect,$db);
 		while($fila=mysql_fetch_array($result))
 		{
-		   return ($fila[tipoUsuario]);
+		   return ($fila['tipoUsuario']);
 		}
 	}
 	return(0);
@@ -107,7 +107,7 @@ function id($clave,$db)
 		$result= mysql_query ($sqlselect,$db);
 		while($fila=mysql_fetch_array($result))
 		{
-		   return ($fila[id]);
+		   return ($fila['id']);
 		}
 	}
 	return(0);
@@ -120,7 +120,7 @@ function contrasena($clave,$db)
 		$result= mysql_query ($sqlselect,$db);
 		while($fila=mysql_fetch_array($result))
 		{
-		   return ($fila[contrasena]);
+		   return ($fila['contrasena']);
 		}
 	}
 	return(0);
@@ -134,16 +134,16 @@ function contrasena($clave,$db)
 
 function subirImagen($arch)
 {
-	if($arch[error]==0)
+	if($arch['error']==0)
 	{
-		$extension = explode(".",strtolower($arch[name])); $num = count($extension)-1;
+		$extension = explode(".",strtolower($arch['name'])); $num = count($extension)-1;
 		if($extension[$num]=="jpg"||$extension[$num]=="gif"||$extension[$num]=="png") 
 		{ 
 			if($arch['size'] < 2000000) 
 			{
 				$nombre="tere-".time()."-".rand(1000,9999).".".$extension[$num];
 				$archivo="../publico/".$nombre;
-				if (move_uploaded_file($arch[tmp_name], $archivo))
+				if (move_uploaded_file($arch['tmp_name'], $archivo))
 				{
 				   return $nombre;
 				} else return 1; //Ocurrió algún error al subir la imagen. No pudo guardarse
@@ -153,16 +153,16 @@ function subirImagen($arch)
 }
 function subirFotoAsesor($arch,$id)
 {
-	if($arch[error]==0)
+	if($arch['error']==0)
 	{
-		$extension = explode(".",strtolower($arch[name])); $num = count($extension)-1;
+		$extension = explode(".",strtolower($arch['name'])); $num = count($extension)-1;
 		if($extension[$num]=="jpg") 
 		{ 
 			if($arch['size'] < 2000000) 
 			{
 				$nombre="Asesor".$id.".jpg";
 				$archivo="../../../publico/".$nombre;
-				if (move_uploaded_file($arch[tmp_name], $archivo))
+				if (move_uploaded_file($arch['tmp_name'], $archivo))
 				{
 				   return $nombre;
 				} else return 1; //Ocurrió algún error al subir la imagen. No pudo guardarse
@@ -173,16 +173,16 @@ function subirFotoAsesor($arch,$id)
 
 function subirFotoUsuario($arch,$id)
 {
-	if($arch[error]==0)
+	if($arch['error']==0)
 	{
-		$extension = explode(".",strtolower($arch[name])); $num = count($extension)-1;
+		$extension = explode(".",strtolower($arch['name'])); $num = count($extension)-1;
 		if($extension[$num]=="jpg") 
 		{ 
 			if($arch['size'] < 2000000) 
 			{
 				$nombre="Usuario".$id.".jpg";
 				$archivo="../../../publico/".$nombre;
-				if (move_uploaded_file($arch[tmp_name], $archivo))
+				if (move_uploaded_file($arch['tmp_name'], $archivo))
 				{
 				   return $nombre;
 				} else return 1; //Ocurrió algún error al subir la imagen. No pudo guardarse
@@ -192,7 +192,7 @@ function subirFotoUsuario($arch,$id)
 }
 
 
-if($index==1)
+if(!empty($index)&&$index==1)
 {
 header ("Expires: Fri, 14 Mar 1980 20:53:00 GMT"); //la pagina expira en fecha pasada 
 header ("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT"); //ultima actualizacion ahora cuando la cargamos 
