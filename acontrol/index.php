@@ -1,6 +1,6 @@
 <?php 
 include("../lib/cfg.php"); 
-$fotoPerfil=campoUsuario($ASclave,foto,$db);
+$fotoPerfil=campoUsuario($ASclave,'foto',$db);
 $nombrePerfil=nombre($ASclave,$db);
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -55,7 +55,13 @@ function AScheckBox(obj)
 <script language="javascript" src="../js/AjaxAS3W.js"  type="text/javascript"></script>
 <link href="estilo.css" rel="stylesheet" type="text/css" />
 </head>
-<body onload="<?php 
+<body onload="<?php
+
+if(empty($_GET['as']))
+{
+  $_GET['as']=0;
+}
+
 switch($_GET["as"])
 {
 
@@ -268,7 +274,7 @@ if($_POST["titulo"]!="")
 		}
 	}
 	$sql= "INSERT INTO Noticia VALUES('','".$_POST["titulo"]."','".$_POST["noticia"]."',NOW(),'".$res."')";
-	mysql_query($sql,$db);
+	mysqli_query($db, $sql);
 	
 	
 	
@@ -281,8 +287,8 @@ if($_POST["titulo"]!="")
 	$cabeceras .= 'From: MasPropiedades <maspropiedades@asx.mx>' . "\r\n";
 	
 		$sql="SELECT * FROM  `Usuario` WHERE nombres!='' AND estado=0";
-		$rs= mysql_query ($sql,$db);
-		while($fl=mysql_fetch_array($rs))
+		$rs= mysqli_query ($db,$sql);
+		while($fl=mysqli_fetch_array($rs))
 		{
 		mail($fl["email"], $asunto, $_POST["noticia"], $cabeceras);
 		}
@@ -314,7 +320,7 @@ if($_POST["tipoInmueble"]!="")
 <h2>Solicitud dada de alta con &eacute;xito</h2>
 <?php
 $sql= "INSERT INTO Solicitud VALUES('','".$ASid."','".$_POST["tipoInmueble"]."','".$_POST["operacionInmueble"]."','".$_POST["valInicial"]."','".$_POST["valFinal"]."','".$_POST["descripcion"]."',NOW())";
-mysql_query($sql,$db);
+mysqli_query ($db,$sql);
 
 
 
@@ -355,8 +361,8 @@ $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 $cabeceras .= 'From: MasPropiedades <info@maspropiedades.com.mx>' . "\r\n";
 
 	$sql="SELECT * FROM  `Usuario` WHERE nombres!='' AND estado=0";
-	$rs= mysql_query ($sql,$db);
-	while($fl=mysql_fetch_array($rs))
+	$rs= mysqli_query ($db,$sql);
+	while($fl=mysqli_fetch_array($rs))
 	{
 		mail($fl["email"], $asunto, $texto, $cabeceras);
 	}
@@ -396,8 +402,8 @@ $cabeceras .= 'From: MasPropiedades <info@maspropiedades.com.mx>' . "\r\n";
 
 <?php
 	$sql="SELECT * FROM  `Noticia` ORDER BY fechaHora DESC LIMIT 0,10";
-	$rs= mysql_query ($sql,$db);
-	while($fl=mysql_fetch_array($rs))
+	$rs= mysqli_query ($db,$sql);
+	while($fl=mysqli_fetch_array($rs))
 	{
 ?>
 
