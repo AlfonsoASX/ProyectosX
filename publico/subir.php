@@ -1,16 +1,23 @@
+<?php 
+
+if(empty($_GET['id']))
+{
+	$_GET['id']=0;
+}
+?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" href="/js/as/uploadify.css" type="text/css" />
-<script language="javascript" src="/js/AjaxAS3W.js"  type="text/javascript"></script>
-<script type="text/javascript" src="/js/jquery-1.3.2.min.js"></script>
-<script type="text/javascript" src="/js/jquery.uploadify.js"></script>
+<link rel="stylesheet" href="../js/as/uploadify.css" type="text/css" />
+<script language="javascript" src="../js/AjaxAS3W.js"  type="text/javascript"></script>
+<script type="text/javascript" src="../js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="../js/jquery.uploadify.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 	$("#fileUploadname2").fileUpload({
-		'uploader': '/js/as/uploader.swf',
-		'cancelImg': '/js/as/cancel.png',
-		'script': '/js/as/upload_name.php',
+		'uploader': '../js/as/uploader.swf',
+		'cancelImg': '../js/as/cancel.png',
+		'script': '../js/as/upload_name.php',
 		'folder': '',
 		'multi': true,
 		'auto': true,

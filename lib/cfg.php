@@ -22,3 +22,10 @@ mysqli_select_db ($db,$basedatos);
 //Conexion al área de mensajes
 include("sesion.php");
 include("funciones.php");
+
+
+//Array de configuración
+
+$_AS= array(
+	'directorioImg'=> $_SERVER["DOCUMENT_ROOT"].'/Proyectos/publico'
+	);
