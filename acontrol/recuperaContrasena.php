@@ -71,8 +71,8 @@ function AScheckBox(obj)
 if($_POST[emailRecuperar]!="")
 {
 	$sql="SELECT * FROM  `Usuario` WHERE email='".$_POST[emailRecuperar]."' LIMIT 0,1";
-	$rs= mysql_query ($sql,$db);
-	while($fl=mysql_fetch_array($rs))
+	$rs= mysqli_query ($db,$sql);
+	while($fl=mysqli_fetch_array($rs))
 	{
 		$txt='Estimado usuario del sistema aControl
 Tu contraseña para entrar al panel de control es: '.$fl["contrasena"].'
