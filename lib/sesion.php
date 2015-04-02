@@ -1,7 +1,7 @@
 <?php
 $sesioniniciada=0;
 //si se envia un email, se tratara de iniciar sesion
-if($_POST["email"])
+if(!empty($_POST["email"]))
 {
     $sqlselect="SELECT * FROM `Usuario` WHERE email ='".$_POST["email"]."'";
     $result= mysql_query ($sqlselect,$db);
@@ -46,20 +46,29 @@ if($_POST["email"])
         }
     }
 }
-if($_GET[Salir]==1)
+if(!empty($_GET['Salir']))
 {
     if(!isset($COOKIE_SET))  //  $cookie_set es nuestra variable de control de flujo, refresca la pantalla antes de iniciar
         { 
 	        $clave=rand(100,999)."a".rand(100,999)."y".rand(10,99)."t".rand(100,999);
-			$sqlupdate="UPDATE `Usuario` SET sesion='".$clave."' WHERE sesion=".$_COOKIE[clave];
+			$sqlupdate="UPDATE `Usuario` SET sesion='".$clave."' WHERE sesion=".$_COOKIE['clave'];
 			mysql_query ($sqlupdate,$db);
             setcookie("clave");
             header("Location: $PHP_SELF?COOKIE_SET=1");  // ponemos cookie_set como true
             exit;
         }
 }
-$ASclave=$_COOKIE[clave];
-$clave=$ASclave;
-$ASno=$_COOKIE[no];
-$ASid=$_COOKIE[id];
-?>
+if(!empty($_COOKIE['clave']))
+{
+	$ASclave=$_COOKIE['clave'];
+	$clave=$ASclave;
+	$ASno=$_COOKIE['no'];
+	$ASid=$_COOKIE['id'];
+}
+else
+{
+	$ASclave=0;
+	$clave=0;
+	$ASno=0;
+	$ASid=0;
+}
