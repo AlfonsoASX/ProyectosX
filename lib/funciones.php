@@ -14,8 +14,8 @@ function sesionValida($clave,$db)
 {
 	$sqlselect="SELECT * FROM `Usuario` WHERE sesion ='".$clave."'";
 
-	$result= mysql_query ($sqlselect,$db);
-	while($fila=mysql_fetch_array($result))
+	$result= mysqli_query ($db,$sqlselect);
+	while($fila=mysqli_fetch_array($result))
 	{
 	   if($fila['sesion']==$clave)
 	      return(1);
@@ -25,8 +25,8 @@ function sesionValida($clave,$db)
 function id_Usuario2nombre($id_Usuario,$db)
 {
 		$sqlselect="SELECT * FROM `Usuario` WHERE id =".$id_Usuario;
-		$result= mysql_query ($sqlselect,$db);
-		while($fila=mysql_fetch_array($result))
+		$result= mysqli_query ($db,$sqlselect);
+		while($fila=mysqli_fetch_array($result))
 		{
 		   $nombre=$fila['nombre']." ".$fila['apellidos'];
 		   return ($nombre);
@@ -39,8 +39,8 @@ function campoUsuarioExterno($clave,$id,$campo,$db)
 	if(sesionValida($clave,$db)==1)
 	{
 		$sqlselect="SELECT $campo FROM `Usuario` WHERE id ='".$id."'";
-		$result= mysql_query ($sqlselect,$db);
-		while($fila=mysql_fetch_array($result))
+		$result= mysqli_query ($db,$sqlselect);
+		while($fila=mysqli_fetch_array($result))
 		{
 		   return $fila[$campo];
 		}
@@ -53,8 +53,8 @@ function campoUsuario($clave,$campo,$db)
 	if(sesionValida($clave,$db)==1)
 	{
 		$sqlselect="SELECT $campo FROM `Usuario` WHERE sesion ='".$clave."'";
-		$result= mysql_query ($sqlselect,$db);
-		while($fila=mysql_fetch_array($result))
+		$result= mysqli_query ($db,$sqlselect);
+		while($fila=mysqli_fetch_array($result))
 		{
 		   return $fila[$campo];
 		}
@@ -69,8 +69,8 @@ function nombre($clave,$db)
 	if(sesionValida($clave,$db)==1)
 	{
 		$sqlselect="SELECT * FROM `Usuario` WHERE sesion ='".$clave."'";
-		$result= mysql_query ($sqlselect,$db);
-		while($fila=mysql_fetch_array($result))
+		$result= mysqli_query ($db,$sqlselect);
+		while($fila=mysqli_fetch_array($result))
 		{
 		   $nombre=$fila['nombres']." ".$fila['apellidos'];
 		   return ($nombre);
@@ -85,8 +85,8 @@ function tipoUsuario($clave,$db)
 	if(sesionValida($clave,$db)==1)
 	{
 		$sqlselect="SELECT * FROM `Usuario` WHERE sesion ='".$clave."'";
-		$result= mysql_query ($sqlselect,$db);
-		while($fila=mysql_fetch_array($result))
+		$result= mysqli_query ($db,$sqlselect);
+		while($fila=mysqli_fetch_array($result))
 		{
 		   return ($fila['tipoUsuario']);
 		}
@@ -104,8 +104,8 @@ function id($clave,$db)
 	if(sesionValida($clave,$db)==1)
 	{
 		$sqlselect="SELECT * FROM `Usuario` WHERE sesion ='".$clave."'";
-		$result= mysql_query ($sqlselect,$db);
-		while($fila=mysql_fetch_array($result))
+		$result= mysqli_query ($db,$sqlselect);
+		while($fila=mysqli_fetch_array($result))
 		{
 		   return ($fila['id']);
 		}
@@ -117,8 +117,8 @@ function contrasena($clave,$db)
 	if(sesionValida($clave,$db)==1)
 	{
 		$sqlselect="SELECT * FROM `Usuario` WHERE sesion ='".$clave."'";
-		$result= mysql_query ($sqlselect,$db);
-		while($fila=mysql_fetch_array($result))
+		$result= mysqli_query ($db,$sqlselect);
+		while($fila=mysqli_fetch_array($result))
 		{
 		   return ($fila['contrasena']);
 		}

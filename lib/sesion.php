@@ -4,8 +4,8 @@ $sesioniniciada=0;
 if(!empty($_POST["email"]))
 {
     $sqlselect="SELECT * FROM `Usuario` WHERE email ='".$_POST["email"]."'";
-    $result= mysql_query ($sqlselect,$db);
-    while($registro=mysql_fetch_array($result))
+    $result= mysqli_query ($db,$sqlselect);
+    while($registro=mysqli_fetch_array($result))
     {
 		if ($_POST["contrasena"]==$registro["contrasena"])
 		{
@@ -36,7 +36,7 @@ if(!empty($_POST["email"]))
 				   $clave=rand(100,999)."a".rand(100,999)."y".rand(10,99)."t".rand(100,999);
 				}
                 $sqlupdate="UPDATE `Usuario` SET sesion='".$clave."' WHERE id=".$registro["id"];
-				mysql_query ($sqlupdate,$db);
+				mysqli_query ($db,$sqlupdate);
 				setcookie("clave", $clave);
 				setcookie("no", $registro["noIdentificacion"]);
 				setcookie("id", $registro["id"]);
@@ -52,7 +52,7 @@ if(!empty($_GET['Salir']))
         { 
 	        $clave=rand(100,999)."a".rand(100,999)."y".rand(10,99)."t".rand(100,999);
 			$sqlupdate="UPDATE `Usuario` SET sesion='".$clave."' WHERE sesion=".$_COOKIE['clave'];
-			mysql_query ($sqlupdate,$db);
+			mysqli_query ($db,$sqlupdate);
             setcookie("clave");
             header("Location: $PHP_SELF?COOKIE_SET=1");  // ponemos cookie_set como true
             exit;
