@@ -2,16 +2,16 @@
 if($_GET["id"]=="") //si no hay id, entonces se da de alta un nuevo asesor
 {
 	$sql="INSERT INTO `ganas001_maspro`.`Asesor` VALUES ('',  '".$ASid."',  '',  '',  '');";
-	mysql_query($sql,$db);
-	$id_Asesor=mysql_insert_id($db);
+	mysqli_query($db,$sql);
+	$id_Asesor=mysqli_insert_id($db);
 	$sql="UPDATE Asesor SET foto='Asesor".$id_Asesor.".jpg' WHERE id=".$id_Asesor;
-	mysql_query($sql,$db);
+  mysqli_query($db,$sql);
 }
 else
 {
 	$sql="SELECT * FROM  `Asesor` WHERE id_Usuario='".$ASid."' AND id=".$_GET["id"];
-	$rs= mysql_query ($sql,$db);
-	while($fl=mysql_fetch_array($rs))
+	$rs= mysqli_query ($db,$sql);
+	while($fl=mysqli_fetch_array($rs))
 	{
 		$id_Asesor=$fl["id"];
 		$nombre=$fl["nombre"];

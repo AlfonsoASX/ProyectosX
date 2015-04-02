@@ -10,8 +10,8 @@
 
 
 	$sql="SELECT * FROM `Inmueble` WHERE id_Usuario=".$ASid." AND fotoURL=''";
-	$rs= mysql_query ($sql,$db);
-	while($fl=mysql_fetch_array($rs))
+	$rs= mysqli_query($db,$sql);
+	while($fl=mysqli_fetch_array($rs))
 	{
 ?>
   <tr>

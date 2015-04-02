@@ -5,8 +5,8 @@
 
 <?php
 	$sql='SELECT * FROM  `Noticia` WHERE id='.$_GET["id"].' ORDER BY fechaHora DESC LIMIT 0,1';
-	$rs= mysql_query ($sql,$db);
-	while($fl=mysql_fetch_array($rs))
+	$rs= mysqli_query($db,$sql);
+	while($fl=mysqli_fetch_array($rs))
 	{
 ?>
     <h2><?php echo $fl["titulo"]; ?></h2>

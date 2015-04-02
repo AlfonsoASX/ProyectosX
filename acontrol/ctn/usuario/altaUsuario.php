@@ -2,13 +2,13 @@
 if($_GET["id"]==""){ 
 
 	$sql="INSERT INTO `Usuario` VALUES ('', '', '', '', '', '', '', '', '', '', '', '', NOW(), '', '', '', '', '', '', '', '', '', 'as');";
-	mysql_query($sql,$db);
-	$_GET["id"]=mysql_insert_id($db);
+	mysqli_query($db,$sql);
+	$_GET["id"]=mysqli_insert_id($db);
 
 }
 $sql="SELECT * FROM `Usuario` WHERE id=".$_GET["id"];
-$rs= mysql_query ($sql,$db);
-while($fl=mysql_fetch_array($rs)){
+$rs= mysqli_query($db,$sql);
+while($fl=mysqli_fetch_array($rs)){
 	foreach($fl as $nombre_campo => $valor){ 
 		$asignacion = $nombre_campo;
 		$$asignacion = $valor;

@@ -3,7 +3,7 @@
 if($_GET["id"]!="")
 {
 	$sql="DELETE FROM Solicitud WHERE id=".$_GET["id"];
-	$rs= mysql_query ($sql,$db);
+	$rs= mysqli_query($db,$sql);
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -25,8 +25,8 @@ if($_GET["id"]!="")
   </tr>
 <?php
 	$sql="SELECT * FROM  `Solicitud` WHERE id_Usuario = ".$ASid." ORDER BY fechaHora DESC LIMIT 0,10";
-	$rs= mysql_query ($sql,$db);
-	while($fl=mysql_fetch_array($rs))
+	$rs= mysqli_query($db,$sql);
+	while($fl=mysqli_fetch_array($rs))
 	{
 ?>
 

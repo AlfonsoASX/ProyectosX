@@ -3,7 +3,7 @@
 if($_GET["id"]!="")
 {
 	$sql="DELETE FROM Asesor WHERE id=".$_GET["id"];
-	$rs= mysql_query ($sql,$db);
+	$rs= mysqli_query($db,$sql);
 }
 ?>
 <style type="text/css">
@@ -19,8 +19,8 @@ if($_GET["id"]!="")
 <table border="0" cellpadding="3" cellspacing="3" bgcolor="#FBFBFB">
   <?php
 	$sql="SELECT * FROM  `Usuario` WHERE id='".$ASid."'";
-	$rs= mysql_query ($sql,$db);
-	while($fl=mysql_fetch_array($rs))
+	$rs= mysqli_query($db,$sql);
+	while($fl=mysqli_fetch_array($rs))
 	{
 ?>
   <tr>
@@ -49,8 +49,8 @@ if($_GET["id"]!="")
   </tr>
 <?php
 	$sql="SELECT * FROM  `Asesor` WHERE id_Usuario='".$ASid."' AND nombre!=''";
-	$rs= mysql_query ($sql,$db);
-	while($fl=mysql_fetch_array($rs))
+	$rs= mysqli_query($db,$sql);
+	while($fl=mysqli_fetch_array($rs))
 	{
 ?>
   <tr>

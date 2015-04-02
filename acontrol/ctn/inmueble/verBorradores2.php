@@ -2,7 +2,7 @@
 if($_GET["id"]!="")
 {
 	$sql="UPDATE  `Inmueble` SET  `status` =  '3' WHERE `id` =".$_GET["id"];
-	$rs= mysql_query ($sql,$db);
+	$rs= mysqli_query($db,$sql);
 }
 
 ?>
@@ -22,8 +22,8 @@ if($_GET["id"]!="")
 
 	$sql="SELECT * FROM `Inmueble` WHERE id_Usuario=".$ASid." AND fotoURL='' AND status!=3";
 
-	$rs= mysql_query ($sql,$db);
-	while($fl=mysql_fetch_array($rs))
+	$rs= mysqli_query($db,$sql);
+	while($fl=mysqli_fetch_array($rs))
 	{
 ?>
   <tr>

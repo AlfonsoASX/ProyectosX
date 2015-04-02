@@ -3,9 +3,9 @@
 if($_GET["id"]!="")
 {
 	$sql='UPDATE Usuario  SET estado= '.$_GET["estado"].' WHERE id='.$_GET["id"];
-	$rs= mysql_query ($sql,$db);
+	$rs= mysqli_query($db,$sql);
 	$sql='UPDATE Inmueble  SET estadoInmobiliaria= '.$_GET["estado"].' WHERE id_Usuario='.$_GET["id"];
-	$rs= mysql_query ($sql,$db);
+	$rs= mysqli_query($db,$sql);
 }
 ?>
 <style type="text/css">
@@ -31,8 +31,8 @@ if($_GET["id"]!="")
   </tr>
 <?php
 	$sql="SELECT * FROM  `Usuario` WHERE nombres!=''";
-	$rs= mysql_query ($sql,$db);
-	while($fl=mysql_fetch_array($rs))
+	$rs= mysqli_query($db,$sql);
+	while($fl=mysqli_fetch_array($rs))
 	{
 ?>
   <tr>
@@ -74,8 +74,8 @@ if($_GET["id"]!="")
       <?php 
 	$sql2="SELECT * FROM `Inmueble` WHERE id_Usuario=".$fl["id"]." AND fotoURL!='' AND status!=3";
 $contInmuebles=0;
-	$rs2= mysql_query ($sql2,$db);
-	while($fl2=mysql_fetch_array($rs2))
+	$rs2= mysqli_query($db,$sql2);
+	while($fl2=mysqli_fetch_array($rs2))
 	{ 
 	    $contInmuebles++;
 

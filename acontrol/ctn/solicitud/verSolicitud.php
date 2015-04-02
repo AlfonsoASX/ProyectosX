@@ -3,14 +3,13 @@
 if($_GET["id"]!="")
 {
 	$sql="DELETE FROM Solicitud WHERE id=".$_GET["id"];
-	$rs= mysql_query ($sql,$db);
+	$rs= mysqli_query($db,$sql);
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Documento sin t&iacute;tulo</title>
 </head>
 
 <body>
@@ -25,8 +24,8 @@ if($_GET["id"]!="")
   </tr>
   <?php
 	$sql="SELECT * FROM  `Solicitud` WHERE id_Usuario ORDER BY fechaHora DESC LIMIT 0,20";
-	$rs= mysql_query ($sql,$db);
-	while($fl=mysql_fetch_array($rs))
+	$rs= mysqli_query($db,$sql);
+	while($fl=mysqli_fetch_array($rs))
 	{
 ?>
   <tr>
@@ -67,7 +66,7 @@ if($_GET["id"]!="")
       en
       <?php 
  
-		switch($fl[operacionInmueble])
+		switch($fl['operacionInmueble'])
 		{
 			case 1:
 			echo "venta";
@@ -89,8 +88,8 @@ if($_GET["id"]!="")
     <td><?php 
 
     $sql2="SELECT * FROM  `Usuario` WHERE id=".$fl["id_Usuario"];
-    $rs2= mysql_query ($sql2,$db);
-    while($fl2=mysql_fetch_array($rs2))
+    $rs2= mysqli_query($db,$sql2);
+    while($fl2=mysqli_fetch_array($rs2))
     {
         foreach($fl2 as $nombre_campo => $valor)
         {

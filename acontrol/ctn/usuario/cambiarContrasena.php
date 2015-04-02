@@ -3,13 +3,13 @@
 if($_GET["contrasena"]!="")
 {
 	$sqlselect="SELECT * FROM `Usuario` WHERE id ='".$ASid."' LIMIT 0,1";
-	$result= mysql_query ($sqlselect,$db);
-	while($fl=mysql_fetch_array($result))
+	$result= mysqli_query ($db,$sqlselect);
+	while($fl=mysqli_fetch_array($result))
 	{
 		if ($_GET["contrasenaActual"]==$fl["contrasena"])
 		{
 			$sqlUpdate="UPDATE `Usuario` SET `contrasena` = '".$_GET["contrasena"]."' WHERE `id` =".$ASid;
-			mysql_query ($sqlUpdate,$db);
+			mysqli_query ($db,$sqlUpdate);
 
 			echo "Contrase&ntilde;a modificada con &eacute;xito";
 		}

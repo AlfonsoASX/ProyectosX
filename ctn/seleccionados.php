@@ -4,18 +4,18 @@ if($_GET["checked"]=="true")
 else
 	$sql="DELETE FROM Marcado WHERE id_Inmueble = ".$_GET["id"]." AND ASX_key = '".$_COOKIE["ASX_key"]."'";
 
-mysql_query ($sql,$db);
+mysqli_query($db,$sql);
 if($_GET["borrar"]==1)
 {
 	$sql="DELETE FROM Marcado WHERE ASX_key = '".$_COOKIE["ASX_key"]."'";
-	mysql_query ($sql,$db);
+	mysqli_query($db,$sql);
 }
 ?>
 <?php
 $cont=0;
 	$sql="SELECT * FROM `Marcado` WHERE ASX_key='".$_COOKIE["ASX_key"]."' ORDER BY id ASC";
-	$rs= mysql_query ($sql,$db);
-	while($fl=mysql_fetch_array($rs))
+	$rs= mysqli_query($db,$sql);
+	while($fl=mysqli_fetch_array($rs))
 	{
 		$cont++;
 	}
@@ -27,8 +27,8 @@ if($cont>0)
 Marcados<br>
 <?php 
 	$sql="SELECT Inmueble.fotoURL, Marcado.id_Inmueble FROM Inmueble, Marcado WHERE Inmueble.id=Marcado.id_Inmueble AND Marcado.ASX_key='".$_COOKIE[ASX_key]."' ORDER BY Marcado.id DESC LIMIT 0,4";
-	$rs= mysql_query ($sql,$db);
-	while($fl=mysql_fetch_array($rs))
+	$rs= mysqli_query($db,$sql);
+	while($fl=mysqli_fetch_array($rs))
 	{
 	?>
 <img hspace="5px" vspace="5px" src="publico/<?php	echo $fl["fotoURL"]; ?>" width="70px">

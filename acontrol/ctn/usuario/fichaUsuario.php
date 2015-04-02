@@ -3,9 +3,9 @@
 if($_GET["id"]!="")
 {
 	$sql='UPDATE Usuario  SET estado= '.$_GET["estado"].' WHERE id='.$_GET["id"];
-	$rs= mysql_query ($sql,$db);
+	$rs= mysqli_query($db,$sql);
 	$sql='UPDATE Inmueble  SET estadoInmobiliaria= '.$_GET["estado"].' WHERE id_Usuario='.$_GET["id"];
-	$rs= mysql_query ($sql,$db);
+	$rs= mysqli_query($db,$sql);
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -19,8 +19,8 @@ if($_GET["id"]!="")
 <a href="?as=1"><img name="logocabecera" src="/img/logocabecera.png" width="185" height="84" border="0" id="logocabecera" alt="" /></a>
 <?php
 	$sql="SELECT * FROM  `Usuario` WHERE id=".$_GET[id];
-	$rs= mysql_query ($sql,$db);
-	while($fl=mysql_fetch_array($rs))
+	$rs= mysqli_query($db,$sql);
+	while($fl=mysqli_fetch_array($rs))
 	{
 ?>
 <table width="100%" border="0" cellspacing="5" cellpadding="5">

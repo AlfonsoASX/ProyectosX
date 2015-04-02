@@ -7,7 +7,7 @@ foreach($_GET as $nombre_campo => $valor){
 	if($_GET["status"]!=""&&$nombre_campo!="status"&&$nombre_campo!="ayt")
 	{
 		$sql="UPDATE  `Inmueble` SET  `status` =  '".$_GET["status"]."' WHERE  `Inmueble`.`id` =".$nombre_campo;
-		$rs= mysql_query ($sql,$db);
+		$rs= mysqli_query($db,$sql);
 	}
 }
 
@@ -35,8 +35,8 @@ $texto.='<table class="tabla1" width="100%" border="0" cellspacing="3" cellpaddi
 	$sql="SELECT * FROM `Inmueble` WHERE estadoInmobiliaria=0 AND status=1 AND fechacreado >= '".$ayer."'";
 //	$sql="SELECT * FROM `Inmueble` WHERE estadoInmobiliaria=0 AND status=1";
 
-	$rs= mysql_query ($sql,$db);
-	while($fl=mysql_fetch_array($rs))
+	$rs= mysqli_query($db,$sql);
+	while($fl=mysqli_fetch_array($rs))
 	{
 $texto.='  <tr>
     <td><a href="http://maspropiedades.com.mx/?as=8&id='.$fl["id"].'" >Ver detalles</a></td>
@@ -112,8 +112,8 @@ $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 $cabeceras .= 'From: MasPropiedades <info@maspropiedades.com.mx>' . "\r\n";
 
 	$sql="SELECT * FROM  `Usuario` WHERE nombres!='' AND estado=0";
-	$rs= mysql_query ($sql,$db);
-	while($fl=mysql_fetch_array($rs))
+	$rs= mysqli_query($db,$sql);
+	while($fl=mysqli_fetch_array($rs))
 	{
 		mail($fl["email"], $asunto, $texto, $cabeceras);
 	}

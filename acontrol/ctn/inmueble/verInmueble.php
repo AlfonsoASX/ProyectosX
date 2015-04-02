@@ -6,7 +6,7 @@ foreach($_GET as $nombre_campo => $valor){
 	if($_GET["status"]!=""&&$nombre_campo!="status"&&$nombre_campo!="ayt")
 	{
 		$sql="UPDATE  `Inmueble` SET  `status` =  '".$_GET["status"]."' WHERE  `Inmueble`.`id` =".$nombre_campo;
-		$rs= mysql_query ($sql,$db);
+		$rs= mysqli_query($db,$sql);
 	}
 }
 
@@ -48,8 +48,8 @@ foreach($_GET as $nombre_campo => $valor){
 	}
 	$sql.=" ORDER BY id ASC";
 	
-	$rs= mysql_query ($sql,$db);
-	while($fl=mysql_fetch_array($rs))
+	$rs= mysqli_query($db,$sql);
+	while($fl=mysqli_fetch_array($rs))
 	{
 ?>
   <tr>

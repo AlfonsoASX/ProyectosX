@@ -7,21 +7,21 @@ include("../../../lib/cfg.php"); if(sesionValida($ASclave,$db)==0) { echo "Sesi&
 if($_GET["valor"]!="")
 {
 	$sql="UPDATE Inmueble SET `".$_GET["campo"]."` = '".$_GET["valor"]."' , `fechamodif`= NOW() WHERE id =".$_GET["id_Inmueble"].";";
-	mysql_query($sql,$db);
+	mysqli_query($db,$sql);
 }
 if($_GET["id_Inmueble"]=="")
 {
 	$sql="INSERT INTO `Inmueble` VALUES ('',  '".$ASid."', '', '', '', '', '',  '',  '',  '',  '',  '',  '',  '',  '12',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  '',  NOW(),  '');";
-	mysql_query($sql,$db);
-	$_GET["id_Inmueble"]=mysql_insert_id($db);
+	mysqli_query($db,$sql);
+	$_GET["id_Inmueble"]=mysqli_insert_id($db);
 }
 if($_GET[a]=="") $_GET[a]=0;
 
 //Recuperar todos los datos de los inmuebles.
 
 	$sql="SELECT * FROM  Inmueble WHERE id='".$_GET["id_Inmueble"]."'";
-	$rs= mysql_query ($sql,$db);
-	while($fl=mysql_fetch_array($rs))
+	$rs= mysqli_query($db,$sql);
+	while($fl=mysqli_fetch_array($rs))
 	{
 		foreach($fl as $nombre_campo => $valor){ 
 			$asignacion = "db_".$nombre_campo;
@@ -78,8 +78,8 @@ switch($_GET[a])
   <h3>1.- Elige el asesor del inmueble</h3>
 	<?php
     $sql="SELECT * FROM  `Asesor` WHERE id_Usuario='".$ASid."' AND nombre!=''";
-    $rs= mysql_query ($sql,$db);
-    while($fl=mysql_fetch_array($rs))
+    $rs= mysqli_query ($db,$sql);
+    while($fl=mysqli_fetch_array($rs))
     {
     ?>
     <div class="bloque" style="height:100px; width:250px;">

@@ -3,7 +3,7 @@ $sql="UPDATE  `ganas001_maspro`.`Asesor` SET
 `nombre` =  '".$_GET["nombre"]."', 
 `datos`='".$_GET["datos"]."' 
 WHERE `Asesor`.`id` =".$_GET["id_Asesor"].";";
-mysql_query($sql,$db);
+mysqli_query($db,$sql);
 
 ?>
 <style type="text/css">

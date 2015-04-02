@@ -17,8 +17,8 @@
 
 
 $sql2="SELECT * FROM  `Inmueble` WHERE estadoInmobiliaria=0 AND id=".$_GET["id"];
-$rs2= mysql_query ($sql2,$db);
-while($fl2=mysql_fetch_array($rs2))
+$rs2= mysqli_query ($db,$sql2);
+while($fl2=mysqli_fetch_array($rs2))
 {
 	foreach($fl2 as $nombre_campo => $valor)
 	{
@@ -27,8 +27,8 @@ while($fl2=mysql_fetch_array($rs2))
 	}
 }
 	$sql2="SELECT * FROM  `Usuario` WHERE id=".$ASid;
-	$rs2= mysql_query ($sql2,$db);
-	while($fl2=mysql_fetch_array($rs2))
+	$rs2= mysqli_query ($db,$sql2);
+	while($fl2=mysqli_fetch_array($rs2))
 	{
 	
 $datosInmo='	
@@ -52,8 +52,8 @@ Tel. Oficina:
 
 <?php
     $sqlInmo="SELECT * FROM  `Usuario` WHERE id=".$id_Usuario;
-    $rsInmo= mysql_query ($sqlInmo,$db);
-    while($flInmo=mysql_fetch_array($rsInmo))
+    $rsInmo= mysqli_query ($sqlInmo,$db);
+    while($flInmo=mysqli_fetch_array($rsInmo))
     {
         foreach($flInmo as $nombre_campo => $valor)
         {
