@@ -38,7 +38,7 @@ if(!empty($_POST["email"]))
                 $sqlupdate="UPDATE `Usuario` SET sesion='".$clave."' WHERE id=".$registro["id"];
 				mysqli_query ($db,$sqlupdate);
 				setcookie("clave", $clave);
-				setcookie("no", $registro["noIdentificacion"]);
+				
 				setcookie("id", $registro["id"]);
 				header("Location:?C=1");  // ponemos cookie como true
 				exit;
@@ -58,17 +58,16 @@ if(!empty($_GET['Salir']))
             exit;
         }
 }
-if(!empty($_COOKIE['clave']))
+
+if(!empty($_COOKIE['clave'])&&!empty($_COOKIE['id']))
 {
 	$ASclave=$_COOKIE['clave'];
 	$clave=$ASclave;
-	$ASno=$_COOKIE['no'];
 	$ASid=$_COOKIE['id'];
 }
 else
 {
 	$ASclave=0;
 	$clave=0;
-	$ASno=0;
 	$ASid=0;
 }

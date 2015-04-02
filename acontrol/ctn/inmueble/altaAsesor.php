@@ -1,5 +1,9 @@
 <?php include("../../../lib/cfg.php"); if(sesionValida($ASclave,$db)==0) { echo "Sesi&oacute;n finalizada"; } else { 
-if($_GET["id"]=="") //si no hay id, entonces se da de alta un nuevo asesor
+
+$nombre='';
+$datos='';
+
+if(empty($_GET["id"])) //si no hay id, entonces se da de alta un nuevo asesor
 {
 	$sql="INSERT INTO `ganas001_maspro`.`Asesor` VALUES ('',  '".$ASid."',  '',  '',  '');";
 	mysqli_query($db,$sql);

@@ -42,7 +42,7 @@ foreach($_GET as $nombre_campo => $valor){
 
     <td><div align="center">
       <p><a href="/acontrol/ctn/inmueble/ficha.php?as=8&id=<?php echo $fl['id']; ?>" target="_blank">Para imprimir</a></p>
-      <p><a href="http://maspropiedades.com.mx/?as=8&id=<?php echo $fl['id']; ?>" target="_blank">Web</a></p>
+      <p><a href="http://casasx.com/?as=8&id=<?php echo $fl['id']; ?>" target="_blank">Web</a></p>
     </div>
       <br /></td>
     <td width="100"><div style="width:100px; overflow:hidden;" align="center"><img src="/publico/<?php echo $fl["fotoURL"]; ?>" height="60"  /></div></td>

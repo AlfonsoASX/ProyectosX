@@ -39,9 +39,9 @@ $texto.='<table class="tabla1" width="100%" border="0" cellspacing="3" cellpaddi
 	while($fl=mysqli_fetch_array($rs))
 	{
 $texto.='  <tr>
-    <td><a href="http://maspropiedades.com.mx/?as=8&id='.$fl["id"].'" >Ver detalles</a></td>
+    <td><a href="http://casasx.com/?as=8&id='.$fl["id"].'" >Ver detalles</a></td>
 
-    <td width="100"><img src="http://maspropiedades.com.mx/publico/'.$fl["fotoURL"].'" height="60"  /></td>
+    <td width="100"><img src="http://casasx.com/publico/'.$fl["fotoURL"].'" height="60"  /></td>
     <td><div align="center">';
 
 		switch($fl[tipoInmueble])
@@ -109,7 +109,7 @@ $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
 //$cabeceras .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 // Cabeceras adicionales
-$cabeceras .= 'From: MasPropiedades <info@maspropiedades.com.mx>' . "\r\n";
+$cabeceras .= 'From: MasPropiedades <info@casasx.com>' . "\r\n";
 
 	$sql="SELECT * FROM  `Usuario` WHERE nombres!='' AND estado=0";
 	$rs= mysqli_query($db,$sql);

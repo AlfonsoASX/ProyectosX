@@ -100,7 +100,7 @@ if(sesionValida($ASclave,$db)==0)
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" background="img/fondoBarraHerramientas.jpg">
   <tr>
-    <td width="81"><a href="http://maspropiedades.com.mx"><img src="img/logoCliente.jpg" alt="Logo" width="81" height="54" border="0" /></a></td>
+    <td width="81"><a href="http://casasx.com"><img src="img/logoCliente.jpg" alt="Logo" width="81" height="54" border="0" /></a></td>
     <td> </td>
     <td><form action="" method="post">
       <div align="right">Correo electrónico
@@ -127,7 +127,7 @@ else
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" background="img/fondoBarraHerramientas.jpg">
   <tr>
-    <td width="81"><a href="http://maspropiedades.com.mx"><img src="img/logoCliente.jpg" alt="Logo" width="81" height="54" border="0" /></a></td>
+    <td width="81"><a href="http://casasx.com"><img src="img/logoCliente.jpg" alt="Logo" width="81" height="54" border="0" /></a></td>
     <td>&nbsp;</td>
     <td><div align="right"><?php echo $nombrePerfil ?> | <a href="?Salir=1">Salir</a></div></td>
     <td width="96"><img src="img/logoAdControl.jpg" alt="ad control" width="96" height="54" /></td>
@@ -349,7 +349,7 @@ Valor entre: '.number_format($_POST["valInicial"]).' y '.number_format($_POST["v
 Descripci&oacute;n:<br />
 '.$_POST["descripcion"].' 
 <br />
-<br /> Consulta más solicitudes en nuestro portal web: http://www.maspropiedades.com.mx/acontrol
+<br /> Consulta más solicitudes en nuestro portal web: http://www.casasx.com/acontrol
 '.$pieCorreo;
 
 $asunto="Nueva solicitud";
@@ -358,7 +358,7 @@ $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
 //$cabeceras .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 // Cabeceras adicionales
-$cabeceras .= 'From: MasPropiedades <info@maspropiedades.com.mx>' . "\r\n";
+$cabeceras .= 'From: MasPropiedades <info@casasx.com>' . "\r\n";
 
 	$sql="SELECT * FROM  `Usuario` WHERE nombres!='' AND estado=0";
 	$rs= mysqli_query ($db,$sql);

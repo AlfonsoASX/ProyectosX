@@ -28,7 +28,7 @@ pagina_requerida.send(null)
 // todo es correcto y ha llegado el momento de poner la información requerida
 // en su sitio en la pagina xhtml
 function cargarpagina(pagina_requerida, id_div){
-document.getElementById(id_div).innerHTML='<img src="/img/cargando.gif" width="21" height="12" />';
+document.getElementById(id_div).innerHTML='Cargando...';
 if (pagina_requerida.readyState == 4 && (pagina_requerida.status==200 || window.location.href.indexOf("http")==-1))
 document.getElementById(id_div).innerHTML=pagina_requerida.responseText
 

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>www.maspropiedades.com.mx</title>
+<title>www.casasx.com</title>
 </head>
 <body>
 
@@ -34,7 +34,7 @@ while($fl2=mysqli_fetch_array($rs2))
 $datosInmo='	
 <strong>Datos de contacto:</strong><br />
 
-<img width="200px" src="http://maspropiedades.com.mx/publico/Usuario'.$ASid.'.jpg" />	
+<img width="200px" src="http://casasx.com/publico/Usuario'.$ASid.'.jpg" />	
 '.$fl2["apellidos"].'<br />
  Nextel: '.$fl2["campo3"].'<br />
  id Nextel: '.$fl2["nextel"].'<br />

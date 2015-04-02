@@ -3,7 +3,7 @@
 include("lib/cfg.php"); 
 
 $sql="INSERT INTO `Usuario` VALUES(NULL, '$_POST[nombres]', '$_POST[apellidos]', '', $_POST[genero], '', '', '', '', '$_POST[email]', '', '', '', '$_POST[contrasena]','','','', '".date("Y-m-d")."', '".date("Y-m-d")."', '1', '-1', 'Tere Te Amo');";
-mysql_query ($sql,$db);
+mysqli_query($db,$sql);
 
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
