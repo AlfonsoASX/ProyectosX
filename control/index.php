@@ -118,7 +118,7 @@ else
       <div class="panel-body">
       	<h4><span class="glyphicon glyphicon-check"></span> Altas</h4>
 		<ul class="nav nav-pills nav-stacked">
-			<li role="presentation"><a role="menuitem" tabindex="-1" href="?modulo=altaEstampa_Pedido&menu=rematesyregalos">
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="?modulo=altaEstampa&menu=rematesyregalos">
 				<span class="glyphicon glyphicon-user"></span> Dar de alta estampa</a>
 			</li>
 			<li role="presentation"><a role="menuitem" tabindex="-1" href="?modulo=altaPedido_Usuario&menu=admingral">
@@ -180,20 +180,20 @@ else
     <div class="panel-heading" role="tab" id="headingCuatro">
       <h4 class="panel-title">
         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseCuatro" aria-expanded="false" aria-controls="collapseCuatro">
-          Más empleos
+          YAP
         </a>
       </h4>
     </div>
-    <div id="collapseCuatro" class="panel-collapse collapse <?php if(!empty($_GET['menu'])&&$_GET['menu']=='masempleos') echo 'in'; ?>" role="tabpanel" aria-labelledby="headingCuatro">
+    <div id="collapseCuatro" class="panel-collapse collapse <?php if(!empty($_GET['menu'])&&$_GET['menu']=='yap') echo 'in'; ?>" role="tabpanel" aria-labelledby="headingCuatro">
       <div class="panel-body">
 
       	<h4><span class="glyphicon glyphicon-signal"></span> Reportes</h4>
 
 		<ul class="nav nav-pills nav-stacked">
-			<li role="presentation"><a role="menuitem" tabindex="-1" href="?modulo=reporteVentas&id_producto=2&menu=masempleos">
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="?modulo=reporteVentas&id_producto=2&menu=yap">
 				<span class="glyphicon glyphicon-usd"></span> Ventas</a>
 			</li>
-			<li role="presentation"><a role="menuitem" tabindex="-1" href="?modulo=reporteCuentasPorCobrar&id_producto=2&menu=masempleos">
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="?modulo=reporteCuentasPorCobrar&id_producto=2&menu=yap">
 				<span class="glyphicon glyphicon-earphone"></span> Cuentas por cobrar</a>
 			</li>
 		</ul>
@@ -203,7 +203,39 @@ else
       </div>
     </div>
   </div>
-  	<a class="btn btn-danger form-control" href="?Salir=1">Salir</a>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingCinco">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseCinco" aria-expanded="false" aria-controls="collapseCinco">
+          Volanteo Efectivo
+        </a>
+      </h4>
+    </div>
+    <div id="collapseCinco" class="panel-collapse collapse <?php if(!empty($_GET['menu'])&&$_GET['menu']=='VolanteoEfectivo') echo 'in'; ?>" role="tabpanel" aria-labelledby="headingCinco">
+      <div class="panel-body">
+
+      	<h4><span class="glyphicon glyphicon-check"></span> Altas</h4>
+		<ul class="nav nav-pills nav-stacked">
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="?modulo=altaSeccion&menu=VolanteoEfectivo">
+				<span class="glyphicon glyphicon-th-list"></span> Dar de alta secciones</a>
+			</li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="?modulo=altaVolante&menu=VolanteoEfectivo">
+				<span class="glyphicon glyphicon-th-list"></span> Dar de alta volantes</a>
+			</li>
+		</ul>
+
+	<h4><span class="glyphicon glyphicon-eye-open"></span> Visualizaciones</h4>
+		<ul class="nav nav-pills nav-stacked">
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="?modulo=verSecciones&menu=VolanteoEfectivo">
+				<span class="glyphicon glyphicon-th-list"></span> Ver secciones</a>
+			</li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="?modulo=verVolantes&menu=VolanteoEfectivo">
+				<span class="glyphicon glyphicon-th-list"></span> Ver volantes</a>
+			</li>
+		</ul>			
+      </div>
+    </div>
+  </div>  	<a class="btn btn-danger form-control" href="?Salir=1">Salir</a>
 </div>
 			</div>
 			<div id="contenido" class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
