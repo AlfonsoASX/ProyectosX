@@ -1,0 +1,49 @@
+body{
+	background-color: #4795a9;
+	background: url('img_int/fondo.png');
+	width: 100%;
+	font-family: Helvetica, Arial;
+	font-size: 14px;
+
+}
+.nav-justified li a
+{
+	background: #53c5cf;
+	margin: 0px 2px 4px 2px ;
+	color:#e6f5f8;
+	text-transform: uppercase;
+}
+
+.nav-justified li a:hover
+{
+	background: #f57e00;
+}
+#top{
+	background: url('img_int/fondoTop.png');
+	background-position: center;
+	background-size: 100% 100%;
+}
+
+#top div img{
+	width: 100%;
+}
+#footer
+{
+	background: url('img_int/pie.png');
+	height: 83px;
+	text-align: right;
+	color: #fff;
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+.sombra
+{
+	background: url('img_int/sombra1.png');
+	height: 100px;
+	width: 100%;
+	background-size: 100% auto;
+	background-repeat:no-repeat;
+	position: absolute;
+	z-index: 1;
+
+}
