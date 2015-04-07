@@ -60,7 +60,7 @@ else
                 <?php 
 }
  ?></td>
-            <td rowspan="7"><img width="100px" src="/publico/Usuario<?php echo $_GET["id"]; ?>.jpg"><br />
+            <td rowspan="7"><img width="100px" src="../publico/Usuario<?php echo $_GET["id"]; ?>.jpg"><br />
               <a href="javascript:AS3Wxmlhttp('ctn/usuario/altaUsuario.php?id=<?php echo $_GET["id"]; ?>','contenido');">Actualizar</a></td>
           </tr>
           <tr>
@@ -122,7 +122,7 @@ else
                 <option <?php if($campo1=='') echo 'selected="selected"'; ?> >Seleccione un valor</option>
               </select>
 </td>
-            <td rowspan="6"><img src="/publico/Usuario<?php echo $_GET["id"]; ?>aa.jpg" alt="" width="100px" /><br />
+            <td rowspan="6"><img src="../publico/Usuario<?php echo $_GET["id"]; ?>aa.jpg" alt="" width="100px" /><br />
               <a href="javascript:AS3Wxmlhttp('ctn/usuario/altaUsuario.php?id=<?php echo $_GET["id"]; ?>','contenido');">Actualizar</a></td>
           </tr>
           <tr>

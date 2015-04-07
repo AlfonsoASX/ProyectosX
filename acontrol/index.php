@@ -207,9 +207,18 @@ if($ASid==1||$ASid==2||$ASid==7)
             }
             ?>            
           </ul>
+
+
+          <h3>Soporte</h3>
+          <p>
+            Teléfono: (477) 347.22.39<br>
+            Correo electrónico: soporte@asx.mx
+          </p>
+          <div id="guardar"> </div>
+
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <div id="guardar"></div>
+          
           <h1 class="page-header"><?php echo $_AS['app']->titulo; ?></h1>
           <div id="contenido"></div>
          
@@ -222,7 +231,7 @@ if($ASid==1||$ASid==2||$ASid==7)
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script language="javascript" src="../js/AjaxAS3W.js"  type="text/javascript"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../3rasPartes/jquery/1.11.2/jquery.js"></script>
     <script src="../3rasPartes/bootstrap/js/bootstrap.min.js"></script>
 
     <script language="JavaScript" type="text/JavaScript"> 
@@ -269,40 +278,6 @@ if($ASid==1||$ASid==2||$ASid==7)
     </script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div align="center">Software para control de inmuebles<br />
-
 <?php
 }
 ?>

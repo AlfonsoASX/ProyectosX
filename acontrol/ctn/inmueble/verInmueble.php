@@ -12,31 +12,35 @@ foreach($_GET as $nombre_campo => $valor){
 
 ?>
 <div id="barraCongelad" style="height:40px;">
-<a class="boton" href="javascript:AS3Wxmlhttp('ctn/inmueble/verInmueble.php?status=3&'+urlGlobal,'contenido');limpiarUrlGlobal();">
+<a class="btn btn-default" href="javascript:AS3Wxmlhttp('ctn/inmueble/verInmueble.php?status=3&'+urlGlobal,'contenido');limpiarUrlGlobal();">
 	<img src="img/borrar.png" width="14" height="15" /> Borrar</a>
-<a class="boton" href="javascript:AS3Wxmlhttp('ctn/inmueble/verInmueble.php?status=2&'+urlGlobal,'contenido');limpiarUrlGlobal();">
+<a class="btn btn-default" href="javascript:AS3Wxmlhttp('ctn/inmueble/verInmueble.php?status=2&'+urlGlobal,'contenido');limpiarUrlGlobal();">
 	<img src="img/rojoSemaforo.png" width="15" height="15" /> Suspender</a>
-<a class="boton" href="javascript:AS3Wxmlhttp('ctn/inmueble/verInmueble.php?status=0&'+urlGlobal,'contenido');limpiarUrlGlobal();">
+<a class="btn btn-default" href="javascript:AS3Wxmlhttp('ctn/inmueble/verInmueble.php?status=0&'+urlGlobal,'contenido');limpiarUrlGlobal();">
 	<img src="img/amarilloSemaforo.png" width="15" height="15" /> Interno</a>
-<a class="boton" href="javascript:AS3Wxmlhttp('ctn/inmueble/verInmueble.php?status=1&'+urlGlobal,'contenido');limpiarUrlGlobal();">
+<a class="btn btn-default" href="javascript:AS3Wxmlhttp('ctn/inmueble/verInmueble.php?status=1&'+urlGlobal,'contenido');limpiarUrlGlobal();">
 	<img src="img/verdeSemaforo.png" width="15" height="15" /> Externo</a>
 	
 
 </div><br />
 
-<input name="q" id="q" value="<?php 
-if(!empty($_GET['q']))
-{
-	echo $_GET["q"];	
-}
-?>" />
-<button type="button" onclick="javascript:AS3Wxmlhttp('ctn/inmueble/verInmueble.php?at=1379998981&q='+$('#q').val(),'contenido');">Buscar...</button>
-
+<form class="form-inline">
+  <div class="form-group">
+	<input class="form-control" name="q" id="q" value="<?php 
+	if(!empty($_GET['q']))
+	{
+		echo $_GET["q"];	
+	}
+	?>" />
+	<button class="btn btn-default" type="button" onclick="javascript:AS3Wxmlhttp('ctn/inmueble/verInmueble.php?at=1379998981&q='+$('#q').val(),'contenido');">Buscar...</button>
+  </div>
+</form>
 <div class="cuadro2">
-<table class="tabla1" width="100%" border="0" cellspacing="3" cellpadding="0">
+<table class="table table-bordered table-striped table-hover">
   <tr>
     <td width="15">&nbsp;</td>
-    <td width="20">&nbsp;</td>
+    <td>&nbsp;</td>
+
     <th>Foto</th>
     <th>Tipo</th>
     <th>Operaci&oacute;n</th>
@@ -58,7 +62,10 @@ if(!empty($_GET['q']))
 	{
 ?>
   <tr>
-    <td><input name="chck<?php echo $fl["id"] ?>" type="checkbox" onChange="AScheckBox(this)" value="<?php 
+    <td>
+
+
+    	<input class="form-control" name="chck<?php echo $fl["id"] ?>" type="checkbox" onChange="AScheckBox(this)" value="<?php 
 	echo $fl["id"];
 	?>" <?php
 	if(isset($_GET[$fl["id"]])&&$_GET["status"]=="")
@@ -68,9 +75,9 @@ if(!empty($_GET['q']))
 
 	?> /></td>
     <td><div align="center">
-      <p><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=4&amp;id_Inmueble=<?php 
-	echo $fl["id"]; ?>','contenido');"><img src="img/editar.png" alt="" width="14" height="15" border="0" />Editar</a></p>
-      <p><a href="ctn/inmueble/ficha.php?as=8&id" target="_blank">Ver ficha</a></p>
+      <a class="btn btn-primary" href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=4&amp;id_Inmueble=<?php 
+	echo $fl["id"]; ?>','contenido');"> <span class="glyphicon glyphicon-pencil"></span> Editar</a>
+
     </div>
       <br /></td>
     <td width="100"><div style="width:100px; overflow:hidden;" align="center"><img src="../publico/<?php echo $fl["fotoURL"]; ?>" height="60"  /></div></td>

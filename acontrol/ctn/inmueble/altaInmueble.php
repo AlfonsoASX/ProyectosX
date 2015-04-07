@@ -38,32 +38,24 @@ if($_GET['a']!=12)
 ?>
 
 
-<style type="text/css">
-<!--
-.Estilo3 {font-size: 12px}
-.BotonBlanco {
-	font-weight: bold;
-	color: #FFFFFF;
-	text-decoration:none;
-}
--->
-</style>
 
 
-<table width="100%" border="0" cellpadding="2" cellspacing="5" background="img/fondoBarraHerramientas.jpg">
-  <tr background="img/fondoBarra2.jpg">
-    <td width="20%" align="center" <?php if($_GET["a"]==0) echo 'background="img/fondoBarraActiva2.jpg"'; ?>>
 
-<a class="BotonBlanco" href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=0&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');"> Clasificaci&oacute;n</a></td>
-    <td width="20%" align="center" <?php if($_GET["a"]==1) echo 'background="img/fondoBarraActiva2.jpg"'; ?>>
-    <a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=1&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');" class="BotonBlanco">Ubicaci&oacute;n</a></td>
-    <td width="20%" align="center" <?php if($_GET["a"]==2) echo 'background="img/fondoBarraActiva2.jpg"'; ?>>
-    <a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=2&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');" class="BotonBlanco">Especificaciones</a></td>
-    <td width="20%" align="center" <?php if($_GET["a"]==3) echo 'background="img/fondoBarraActiva2.jpg"'; ?>>
-    <a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=3&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');" class="BotonBlanco">Fotograf&iacute;a</a></td>
+
+<table class="table table-bordered table-striped">
+  <tr class="success">
+    <td width="20%" align="center" <?php if($_GET["a"]==0) echo 'class="info"'; ?>>
+
+    <a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=0&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');"> Clasificaci&oacute;n</a></td>
+    <td width="20%" align="center" <?php if($_GET["a"]==1) echo 'class="info"'; ?>>
+    <a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=1&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');">Ubicaci&oacute;n</a></td>
+    <td width="20%" align="center" <?php if($_GET["a"]==2) echo 'class="info"'; ?>>
+    <a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=2&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');">Especificaciones</a></td>
+    <td width="20%" align="center" <?php if($_GET["a"]==3) echo 'class="info"'; ?>>
+    <a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=3&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');">Fotograf&iacute;a</a></td>
     <td width="20%" height="37" align="center" <?php if($_GET["a"]==4) 
-	echo 'background="img/fondoBarraActiva2.jpg"'; ?>>
-    <a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=4&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');" class="BotonBlanco">Revisi&oacute;n final</a></td>
+	echo 'class="info"'; ?>>
+    <a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=4&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');">Revisi&oacute;n final</a></td>
   </tr>
 </table>
 <?php
@@ -84,7 +76,7 @@ switch($_GET['a'])
 <img src="../publico/Asesor<?php echo $fl["id"]; ?>.jpg" height="50px" /><br />
 <br />
 
-<a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=id_Asesor&valor=<?php echo $fl["id"]; ?>&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton" style="font-size:10px; overflow:hidden"><?php echo $fl["nombre"]; ?></a>
+<a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=id_Asesor&valor=<?php echo $fl["id"]; ?>&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default" style="font-size:10px; overflow:hidden"><?php echo $fl["nombre"]; ?></a>
 
 </div>
     <?php
@@ -93,69 +85,69 @@ switch($_GET['a'])
 </div>
 <div id="1_2">
 <h3>2.- Elige el tipo de inmueble</h3>
-<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=tipoInmueble&valor=1&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Bodega</a></div>
-<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=tipoInmueble&valor=2&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Casas</a></div>
-<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=tipoInmueble&valor=3&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Cuartos</a></div>
-<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=tipoInmueble&valor=4&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Departamentos</a></div>
-<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=tipoInmueble&valor=5&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Edificos</a></div>
-<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=tipoInmueble&valor=6&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Locales</a></div>
-<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=tipoInmueble&valor=7&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Oficinas</a></div>
-<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&amp;campo=tipoInmueble&amp;valor=8&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Terrenos</a></div>
-<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&amp;campo=tipoInmueble&amp;valor=9&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Ranchos y granjas</a></div>
+<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=tipoInmueble&valor=1&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Bodega</a></div>
+<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=tipoInmueble&valor=2&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Casas</a></div>
+<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=tipoInmueble&valor=3&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Cuartos</a></div>
+<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=tipoInmueble&valor=4&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Departamentos</a></div>
+<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=tipoInmueble&valor=5&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Edificos</a></div>
+<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=tipoInmueble&valor=6&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Locales</a></div>
+<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=tipoInmueble&valor=7&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Oficinas</a></div>
+<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&amp;campo=tipoInmueble&amp;valor=8&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Terrenos</a></div>
+<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&amp;campo=tipoInmueble&amp;valor=9&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Ranchos y granjas</a></div>
 </div>
 <div id="1_3">
 <h3>3.- Elige el tipo de operaci&oacute;n</h3>
-<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=operacionInmueble&valor=1&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Venta</a></div>
-<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=operacionInmueble&valor=2&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Renta</a></div>
+<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=operacionInmueble&valor=1&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Venta</a></div>
+<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=operacionInmueble&valor=2&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Renta</a></div>
 </div>
 <div id="1_4">
 <h3>4.- Elige la condici&oacute;n del inmueble</h3>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=condicion&valor=1&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Nuevo</a><br /><span style="font-size:9px">&nbsp;</span></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=condicion&valor=2&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Seminuevo</a><br /><span style="font-size:9px">Menos de 3 a&ntilde;os</span></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=condicion&valor=3&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Usado</a><br /><span style="font-size:9px">&nbsp;</span>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=condicion&valor=1&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Nuevo</a><br /><span style="font-size:9px">&nbsp;</span></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=condicion&valor=2&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Seminuevo</a><br /><span style="font-size:9px">Menos de 3 a&ntilde;os</span></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=condicion&valor=3&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Usado</a><br /><span style="font-size:9px">&nbsp;</span>
   </div>
 </div>
-<p align="right"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=1&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');" class="boton">Siguiente</a></p>
+<p align="right"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=1&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');" class="btn btn-default">Siguiente</a></p>
       <?php
 	break;
 	case 1:
 ?>
 <div id="2_1"><h3>1. Elige el estado en donde se encuentra el inmueble</h3>
-<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=12&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Guanajuato</a></div><br />
+<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=12&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Guanajuato</a></div><br />
 <a href="javascript:mostrar('estados')">Morstrar u ocultar otros estados</a>
 <div id="estados" style="display:none;">
 
-<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=1&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Aguascalientes</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=2&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Baja California </a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=3&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Baja California Sur</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=4&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Campeche</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=5&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Chihuahua</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=6&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Chiapas</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=7&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Coahuila</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=8&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Colima</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=9&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Distrito Federal</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=10&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Durango</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=11&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Guerrero</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=13&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Hidalgo</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=14&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Jalisco</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=15&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Michoac&aacute;n</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=16&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Estado de M&eacute;xico</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=17&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Morelos</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=18&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Nayarit</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=19&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Nuevo Le&oacute;n</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=20&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Oaxaca</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=21&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Puebla</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=22&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Quintana Roo</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=23&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Queretaro</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=24&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Sinaloa</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=25&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">San Luis Potos&iacute;</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=26&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Sonora</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=27&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Tabasco</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=28&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Tamaulipas</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=29&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Tlaxcala</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=30&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Veracruz</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=31&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Yucatan</a></div>
-    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=32&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Zacatecas</a></div>
+<div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=1&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Aguascalientes</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=2&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Baja California </a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=3&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Baja California Sur</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=4&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Campeche</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=5&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Chihuahua</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=6&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Chiapas</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=7&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Coahuila</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=8&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Colima</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=9&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Distrito Federal</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=10&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Durango</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=11&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Guerrero</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=13&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Hidalgo</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=14&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Jalisco</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=15&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Michoac&aacute;n</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=16&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Estado de M&eacute;xico</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=17&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Morelos</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=18&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Nayarit</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=19&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Nuevo Le&oacute;n</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=20&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Oaxaca</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=21&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Puebla</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=22&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Quintana Roo</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=23&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Queretaro</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=24&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Sinaloa</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=25&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">San Luis Potos&iacute;</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=26&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Sonora</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=27&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Tabasco</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=28&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Tamaulipas</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=29&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Tlaxcala</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=30&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Veracruz</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=31&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Yucatan</a></div>
+    <div class="bloque"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=estado&valor=32&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Zacatecas</a></div>
 </div>
 </div>
 <br />
@@ -169,7 +161,7 @@ switch($_GET['a'])
           <td bgcolor="#F9F9F9"><input name="ciudad" type="text" id="estado3" value="<?php 
 		  if($db_ciudad=="") echo "Le&oacute;n"; else echo $db_ciudad; 
 		  ?>" list="listCiudades" onchange="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&amp;campo=ciudad&amp;valor='+form2.ciudad.value+'&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" onkeyup="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&amp;campo=ciudad&amp;valor='+form2.ciudad.value+'&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');"/> 
-            <a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&amp;campo=ciudad&amp;valor='+form2.ciudad.value+'&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Guardar ciudad</a>              
+            <a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&amp;campo=ciudad&amp;valor='+form2.ciudad.value+'&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Guardar ciudad</a>              
             <datalist id="listCiudades">
                 <option value="Abasolo"></option>
                 <option value="Pueblo Nuevo"></option>
@@ -227,23 +219,23 @@ switch($_GET['a'])
 <div id="2_2"><h3>2. Elige la ubicaci&oacute;n del inmueble</h3>
     <div align="center"><table border="0" cellpadding="0" cellspacing="0" background="img/rosaVientos.png">
       <tr>
-        <td width="133" height="133">	<div align="center"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=zona&valor=Noroeste&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Noroeste</a></div></td>
-        <td width="133">				<div align="center"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=zona&valor=Norte&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Norte</a></div></td>
-        <td width="133">				<div align="center"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=zona&valor=Noreste&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Noreste</a></div></td>
+        <td width="133" height="133">	<div align="center"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=zona&valor=Noroeste&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Noroeste</a></div></td>
+        <td width="133">				<div align="center"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=zona&valor=Norte&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Norte</a></div></td>
+        <td width="133">				<div align="center"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=zona&valor=Noreste&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Noreste</a></div></td>
       </tr>
       <tr>
-        <td height="134">				<div align="center"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=zona&valor=Oeste&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Oeste</a></div></td>
-        <td>							<div align="center"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=zona&valor=Centro&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Centro</a></div></td>
-        <td>							<div align="center"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=zona&valor=Este&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Este</a></div></td>
+        <td height="134">				<div align="center"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=zona&valor=Oeste&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Oeste</a></div></td>
+        <td>							<div align="center"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=zona&valor=Centro&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Centro</a></div></td>
+        <td>							<div align="center"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=zona&valor=Este&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Este</a></div></td>
       </tr>
       <tr>
-        <td height="133">				<div align="center"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=zona&valor=Suroeste&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Suroeste</a></div></td>
-        <td>							<div align="center"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=zona&valor=Sur&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Sur</a></div></td>
-        <td>							<div align="center"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=zona&valor=Sureste&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="boton">Sureste</a></div></td>
+        <td height="133">				<div align="center"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=zona&valor=Suroeste&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Suroeste</a></div></td>
+        <td>							<div align="center"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=zona&valor=Sur&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Sur</a></div></td>
+        <td>							<div align="center"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=12&campo=zona&valor=Sureste&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','guardar');" class="btn btn-default">Sureste</a></div></td>
       </tr>
     </table></div></div>
     
-<p align="right"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=2&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');" class="boton">Siguiente</a></p>
+<p align="right"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=2&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');" class="btn btn-default">Siguiente</a></p>
 <?php
 	break;
 	case 2:
@@ -1252,7 +1244,7 @@ switch($_GET['a'])
           </tr>
         </table>
 </form>
-<p align="right"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=3&campo=detalles&valor='+form3.detalles.value+'&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');" class="boton">Siguiente</a></p>
+<p align="right"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=3&campo=detalles&valor='+form3.detalles.value+'&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');" class="btn btn-default">Siguiente</a></p>
 
 <?php
 	break;
@@ -1261,7 +1253,7 @@ switch($_GET['a'])
 ?>
 <iframe src="../publico/subir.php?id=<?php echo $_GET["id_Inmueble"]; ?>" frameborder="0" marginheight="0" marginwidth="" scrolling="auto" width="90%" height="300px" ></iframe>
 
-<p align="right"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=4&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');" class="boton">Siguiente</a></p>
+<p align="right"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=4&id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');" class="btn btn-default">Siguiente</a></p>
 
   <?php
 	break;
@@ -1326,7 +1318,7 @@ switch($_GET['a'])
 			}
 		}
 		?> en la ciudad de <?php echo $db_ciudad; ?></h1>
-<table width="100%" border="0" cellspacing="5" cellpadding="5">
+<table width="100%" border="0" cellspacing="5" cellpadding="5" >
   <tr>
     <td width="355" valign="top" bgcolor="#F0F0F0"><div align="center"><img src="../publico/<?php echo $db_fotoURL; ?>" width="350" /></div></td>
     <td valign="top"><p><?php echo $db_titulo; ?> - <a href="javascript:AS3Wxmlhttp('ctn/inmueble/altaInmueble.php?a=2&amp;id_Inmueble=<?php echo $_GET["id_Inmueble"]; ?>','contenido');">editar</a>
@@ -1463,7 +1455,7 @@ autos      </span></td>
 </div>
 <?php } ?>
 <p><?php echo $db_detalles ?></p>
-<p align="right"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/verInmueble.php?'+urlGlobal,'contenido');" class="boton">Guardar Inmueble</a></p>
+<p align="right"><a href="javascript:AS3Wxmlhttp('ctn/inmueble/verInmueble.php?'+urlGlobal,'contenido');" class="btn btn-default">Guardar Inmueble</a></p>
 
   <?php
 	break;
