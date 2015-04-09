@@ -40,7 +40,7 @@ else if(file_exists ($_GET["a"].".gif"))
 }
 else 
 {
-	$imagen_dest = imagecreatefrompng("logo.png"); 
+	$imagen_dest = imagecreatefromjpeg("sinImg.jpg"); 
 }
 $ancho_dest = imagesx($imagen_dest); 
 $alto_dest = imagesy($imagen_dest); 
