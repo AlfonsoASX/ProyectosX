@@ -1,3 +1,8 @@
 RewriteEngine On
-RewriteRule ^([a-zA-Z0-9-]+).asx$ index.php?urlVolante=$1 [L,NC]
-RewriteRule ^([0-9]+)-([a-zA-Z0-9.ñ-]+)$ index.php?id_Anuncio=$1 [L,NC]
+# Modulos directos
+RewriteRule ^([a-zA-Z0-9]+).as$ index.php?tipoInmueble=$1 [L,NC]
+
+# Modulos con marca
+RewriteRule ^([a-zA-Z0-9]+)-en-([a-zA-Z0-9]+).as$ index.php?tipoInmueble=$1&operacionInmueble=$2 [L,NC]
+RewriteRule ^([a-zA-Z0-9]+)-en-([a-zA-Z0-9]+)-en-([a-zA-Z0-9áéíóúÁÉÍÓÚÑñ]+).as$ index.php?tipoInmueble=$1&operacionInmueble=$2&ciudad=$3 [L,NC]
+RewriteRule ^casa-([0-9]+).as$ index.php?module=auto&id=$1 [L,NC]

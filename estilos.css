@@ -1,0 +1,74 @@
+body
+{
+	background: #afafaf;
+}
+
+a:hover
+{
+	text-decoration: none;
+}
+
+.navbar-header img
+{
+	height: 45px;
+	margin: 3px;
+}
+
+
+
+
+.item
+{
+	background: #fff;
+	height: 265px;
+	margin: 0px 10px 20px 10px;
+
+}
+
+.item figure 
+{
+	height: 150px;
+	overflow: hidden;
+	text-align: center;
+	background: #fff;
+
+}
+
+.item:hover
+{
+	background: #337ab7;
+	opacity: 0.7;
+}
+
+.item figure img
+{
+	
+}
+
+.item h2
+{
+	font-size: 16px;
+	background: #efefef;
+	padding: 10px;
+	margin: 0px;
+	height: 60px;
+	overflow: hidden;
+
+}
+
+.item p
+{
+	background: #fff;
+	text-align: right;
+	color: #088A29;
+	padding: 10px;
+	font-size: 20px;
+
+}
+
+
+
+.jumbotron
+{
+	text-align: center; 
+}

@@ -57,14 +57,7 @@ function AScheckBox(obj)
 <body>
 
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" background="img/fondoBarraHerramientas.jpg">
-  <tr>
-    <td width="81">&nbsp;</td>
-    <td> </td>
-    <td>&nbsp;</td>
-    <td width="96"><img src="img/logoAdControl.jpg" alt="ad control" width="96" height="54" /></td>
-  </tr>
-</table>
+
 <p>&nbsp;</p>
 <div id="cuerpo">
 <?php

@@ -11,27 +11,17 @@ if(sesionValida($ASclave,$db)==0)
 {
 ?>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" background="img/fondoBarraHerramientas.jpg">
-  <tr>
-    <td width="81"><a href="http://casasx.com"><img src="img/logoCliente.jpg" alt="Logo" width="81" height="54" border="0" /></a></td>
-    <td> </td>
-    <td><form action="" method="post">
+
+<form action="" method="post">
       <div align="right">Correo electrónico
         <input name="email" type="email" id="email" />
         Contraseña
         <input name="contrasena" id="contrasena" type="password" />
           <input type="submit" name="button" id="button" value="Entrar" />
           <br />
-          <a href="http://maspropiedades.as3w.com/acontrol/recuperaContrasena.php" class="Estilo2">¿Olvidaste tu contraseña?</a>      </div>
-    </form></td>
-    <td width="96"><img src="img/logoAdControl.jpg" alt="ad control" width="96" height="54" /></td>
-  </tr>
-</table>
-<p>&nbsp;</p>
-<div id="cuerpo">
-<h1>Bienvenido</h1>
-<div align="center"><img src="img/logoadcontrolInicio.jpg" width="464" height="454" /></div>
-</div>
+          <a href="recuperaContrasena.php" class="Estilo2">¿Olvidaste tu contraseña?</a>      </div>
+    </form>
+
 
 <?php
 }
