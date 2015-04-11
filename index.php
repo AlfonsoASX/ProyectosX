@@ -80,50 +80,120 @@ if(!empty($_GET['ciudad']))
           
 <h1><?php echo $titulo; ?></h1>
 
+
+<?php
+if(!empty($_GET['id']))
+{
+?>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Colonia del inmueble</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<?php    
+}
+?>
+
+
           <div class="row">
     <?php
 $sql="SELECT * FROM `Inmueble` WHERE precio!=0 AND status=1 
 
 ";
 $rs= mysqli_query ($db,$sql);
-
+$contadorInmuebles=0;
 
 while($fl=mysqli_fetch_array($rs))
 {
-    if(file_exists("publico/".$fl["fotoURL"]))
+    if($contadorInmuebles<$_AS['maximoInmuebles'])
     {
+        if(file_exists("publico/".$fl["fotoURL"]))
+        {
+            $contadorInmuebles++;
+            $img=explode('.',$fl["fotoURL"]);
 ?>
             <div class="col-xs-6 col-lg-4">
-                <a href="?a=<?php echo $fl["id"] ?>">
+                <a  data-toggle="modal" data-target="#fichaTecnica<?php echo $fl['id'] ?>">
                     <div class="item">
-                      <figure><img width="100%" src="publico/<?php echo $fl["fotoURL"]; ?>"></figure>
+                      <figure><img width="100%" src="publico/?a=<?php echo $img[0]; ?>"></figure>
                       <h2><?php echo $fl["titulo"]; ?></h2>
                       <p>$ <?php echo number_format($fl["precio"]); ?></p>
                     </div>
                 </a>
             </div><!--/.col-xs-6.col-lg-4-->
-<?php
-if(empty($contInmuebles['tipoInmueble'][$fl['tipoInmueble']]))
-{
-    $contInmuebles['tipoInmueble'][$fl['tipoInmueble']]=1;
-}
-else
-{
-    $contInmuebles['tipoInmueble'][$fl['tipoInmueble']]++;        
-}
 
-if(empty($contInmuebles['operacionInmueble'][$fl['operacionInmueble']]))
-{
-    $contInmuebles['operacionInmueble'][$fl['operacionInmueble']]=1;
-}
-else
-{
-    $contInmuebles['operacionInmueble'][$fl['operacionInmueble']]++;
-}
+
+
+<!-- Large modal -->
+
+<div class="modal fade" id="fichaTecnica<?php echo $fl['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="colonia" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="colonia"><?php echo $fl["titulo"]; ?></h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<?php
+            if(empty($contInmuebles['tipoInmueble'][$fl['tipoInmueble']]))
+            {
+                $contInmuebles['tipoInmueble'][$fl['tipoInmueble']]=1;
+            }
+            else
+            {
+                $contInmuebles['tipoInmueble'][$fl['tipoInmueble']]++;        
+            }
+
+            if(empty($contInmuebles['operacionInmueble'][$fl['operacionInmueble']]))
+            {
+                $contInmuebles['operacionInmueble'][$fl['operacionInmueble']]=1;
+            }
+            else
+            {
+                $contInmuebles['operacionInmueble'][$fl['operacionInmueble']]++;
+            }
+            if(empty($contInmuebles['ciudad'][$fl['ciudad']]))
+            {
+                $contInmuebles['ciudad'][$fl['ciudad']]=1;
+            }
+            else
+            {
+                $contInmuebles['ciudad'][$fl['ciudad']]++;
+            }
 
     
 
-
+        }
     }
 }
 
@@ -172,7 +242,34 @@ foreach ($_GLOBAL->tipoInmueble as $id => $valor)
     }
 }
 ?>
-          </div>        </div><!--/.sidebar-offcanvas-->
+          </div> 
+          <div class="list-group">
+
+            
+<?php
+
+$sql="SELECT DISTINCT ciudad FROM Inmueble WHERE status=1 AND ciudad!=''";
+$rs= mysqli_query ($db,$sql);
+
+
+while($fl=mysqli_fetch_array($rs))
+{
+    if(!empty($contInmuebles['ciudad'][$fl['ciudad']]))
+    {    
+?>
+        <a href="#" class="list-group-item"><?php echo $fl['ciudad'] ?> (<?php echo $contInmuebles['ciudad'][$fl['ciudad']] ?>)</a>
+<?php
+    }
+    else
+    {
+?>
+        <a href="#" class="list-group-item"><?php echo $fl['ciudad'] ?></a>
+<?php
+
+    }
+}
+?>
+          </div> </div><!--/.sidebar-offcanvas-->
       </div><!--/row-->
 
       <hr>
@@ -188,5 +285,28 @@ foreach ($_GLOBAL->tipoInmueble as $id => $valor)
 
     <script src="3rasPartes/bootstrap/js/bootstrap.min.js"></script>
     <script src="3rasPartes/offcanvas/offcanvas.js"></script>
+    <script>
+<?php
+if(!empty($_GET['id']))
+{
+?>
+    $('#myModal').modal('show');
+<?php
+}
+?>
+</script>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-4281819-50', 'auto');
+  ga('send', 'pageview');
+
+</script>
     </body>
 </html>

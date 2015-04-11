@@ -76,12 +76,10 @@ Si no pediste recuperar tu contraseña notifica al administrador.';
 		mail($_POST[emailRecuperar],'Contraseña del sistema',$txt);
 		
 	}
-
-
-	?>
+?>
 	<h1>Tu contraseña está en camino</h1>
 	<p align="center">La contraseña fue enviada a tu correo electrónico</p>
-	<?php
+<?php
 }
 else
 {

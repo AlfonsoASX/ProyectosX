@@ -1,6 +1,6 @@
 body
 {
-	background: #afafaf;
+	background: #cfcfcf;
 }
 
 a:hover
@@ -14,14 +14,25 @@ a:hover
 	margin: 3px;
 }
 
+h1
+{
+	font-family: sans-serif,Arial; 
+	font-weight: 300;
+	font-size: 28px;
+	margin: 0px 0px 15px 0px;
+}
 
+.list-group a
+{
 
+	text-transform: capitalize;
+}
 
 .item
 {
 	background: #fff;
 	height: 265px;
-	margin: 0px 10px 20px 10px;
+	margin: 0px 0px 20px 0px;
 
 }
 
