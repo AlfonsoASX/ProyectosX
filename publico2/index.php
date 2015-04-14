@@ -3,7 +3,7 @@
 header("Content-type: image/jpeg"); 
 
 if(empty($_GET["ancho"])) 
-	$_GET["ancho"]=500; 
+	$_GET["ancho"]=350; 
 if(empty($_GET['a']))
 {
 	$_GET['a']='';
@@ -44,7 +44,7 @@ $alto_img = ($ancho_img/$ancho_dest)*$alto_dest;
 $im = imagecreatetruecolor($ancho_img,$alto_img); 
 imagecopyresized($im,$imagen_dest,0,0,0,0,$ancho_img,$alto_img,$ancho_dest,$alto_dest); 
 
-if($_GET['ancho']>500)
+if($_GET['ancho']>400)
 {
 	$imagen_logo = imagecreatefrompng("logo.png"); 
 	$ancho_logo = imagesx($imagen_logo); 

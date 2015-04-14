@@ -1,0 +1,2 @@
+ RewriteEngine On
+RewriteRule ^([0-9]+)____([a-zA-Z0-9_%()ÑñÁÉÍÓÚ%áéíóú]+).(jpg|png|gif|JPG|PNG|GIF)$ index.php?a=$1 [L,NC]

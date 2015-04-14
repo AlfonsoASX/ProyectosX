@@ -2,11 +2,30 @@
 session_start();
 
 //Conexion a todo el sistema
+
+/*
+// omnis
+
 $host="ganas001.mysql.guardedhost.com";
 $user="ganas001_maspro";
 $pass="s428MpCz";
 $basedatos="ganas001_maspro";
+*/
+
 /*
+//Control.mx
+
+$host="ganas001.mysql.guardedhost.com";
+$user="control_admin";
+$pass="$?]fr*?J7Z]Q";
+$basedatos="control_mx";
+*/
+
+/*
+
+
+
+
 $host="localhost";
 $user="root";
 $pass="root";
