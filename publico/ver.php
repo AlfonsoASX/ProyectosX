@@ -4,8 +4,6 @@ require '../lib/cfg.php';
 
 
 $directorio=opendir($_AS['directorioImg']); 
-
-
 while (false !== ($archivo = readdir($directorio))) {
 	//Por seguridad, solo si es un archivo de este inmueble podrá ser borrado
 	if(!empty($_GET["archivo"])&&$_GET["archivo"]==$archivo){
