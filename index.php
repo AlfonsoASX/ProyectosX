@@ -1,9 +1,7 @@
 <?php
 require 'lib/cfg.php';
 
-
 $titulo='';
-
 if(!empty($_GET['tipoInmueble']))
 {
     $titulo=$_GET['tipoInmueble'];
@@ -22,8 +20,6 @@ if(!empty($_GET['ciudad']))
 {
     $titulo.=' en '.$_GET['ciudad'];
 }
-
-
 
 ?><!DOCTYPE html>
 <html lang="es-mx">
