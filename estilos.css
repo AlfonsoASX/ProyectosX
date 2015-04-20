@@ -16,8 +16,8 @@ a:hover
 
 h1
 {
-	font-family: sans-serif,Arial; 
-	font-weight: 300;
+	letter-spacing: 1pt;
+	font-weight: 100;
 	font-size: 28px;
 	margin: 0px 0px 15px 0px;
 }
@@ -31,10 +31,11 @@ h1
 .item
 {
 	background: #fff;
-	height: 265px;
+	height: 255px;
 	margin: 0px 0px 20px 0px;
 
 }
+
 
 .item figure 
 {
@@ -59,15 +60,48 @@ h1
 .item h2
 {
 	font-size: 16px;
+		font-family: sans-serif,Arial; 
 	background: #efefef;
-	padding: 10px;
+	padding: 10px 10px 0px 10px;
 	margin: 0px;
-	height: 60px;
 	overflow: hidden;
+	text-overflow: ellipsis;
+	font-weight: 100;   
+    white-space: nowrap;
+
+}
+.item h3
+{
+	font-size: 15px;
+
+	background: #efefef;
+	padding: 0px 10px 10px 10px;
+	margin: 0px;
+	overflow: hidden;
+	text-overflow: ellipsis;   
+    white-space: nowrap;
+    color:#000;
+	font-weight: 100;
+	letter-spacing: 1pt;
+
+}
+.item .logo
+{
+	position: relative;
+	float: left;
+	height: 50px;
+	padding: 5px;
 
 }
 
-.item p
+.fichaInmobiliaria .logo
+{
+	width: 100%;
+
+}
+
+
+.precio
 {
 	background: #fff;
 	text-align: right;
@@ -76,7 +110,18 @@ h1
 	font-size: 20px;
 
 }
-
+.fichaAsesor
+{
+	background: #eee;
+	margin: 5px;
+	padding: 0px 10px 10px 10px;
+	border-radius: 5px;
+}
+.fichaAsesor .foto
+{
+	width: 100%;
+	border-radius: 5px;
+}
 
 
 .jumbotron

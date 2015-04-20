@@ -101,57 +101,185 @@ if(!empty($_GET['id']))
     </div>
   </div>
 </div>
-<?php    
+
+<?php
 }
 ?>
-
-
           <div class="row">
-    <?php
-$sql="SELECT * FROM `Inmueble` WHERE precio!=0 AND status=1 
+<?php
+$sql="SELECT 
+      Inmueble.id, 
+      Inmueble.id_Usuario, 
+      Inmueble.status, 
+      Inmueble.tipoInmueble, 
+      Inmueble.operacionInmueble, 
+      Inmueble.titulo, 
+      Inmueble.fotoURL,  
+      Inmueble.descripcion,  
+      Inmueble.detalles,  
+      Inmueble.precio,
+      Inmueble.ciudad,
+      Inmueble.antiguedad,  
+      Inmueble.terreno,  
+      Inmueble.construccion,  
+      Inmueble.areaDeJardin,  
+      Inmueble.numeroDeRecamaras,  
+      Inmueble.numeroDeNiveles,  
+      Inmueble.numeroDeBanos,  
+      Inmueble.cocheraSinTecho,  
+      Inmueble.cocheraTechada,  
+      Usuario.nombreComercial,
+      Usuario.contacto,
+      Usuario.campo2,
+      Usuario.campo3,
+      Usuario.campo4,
+      Usuario.telefono,
+      Usuario.nextel,
+      Asesor.nombre nombreAsesor,      
+      Asesor.foto fotoAsesor,
+      Asesor.datos datosAsesor
 
+      FROM `Inmueble` 
+
+      LEFT JOIN Usuario ON Usuario.id = Inmueble.id_Usuario
+      LEFT JOIN Asesor ON Asesor.id = Inmueble.id_Asesor
+      WHERE Inmueble.precio!=0 
+      AND Inmueble.status!=3 
+      AND Inmueble.fotoURL !='' 
+      AND Inmueble.estadoInmobiliaria=0
 ";
 $rs= mysqli_query ($db,$sql);
 $contadorInmuebles=0;
 
 while($fl=mysqli_fetch_array($rs))
 {
-    if($contadorInmuebles<$_AS['maximoInmuebles'])
-    {
-        if(file_exists("publico/".$fl["fotoURL"]))
-        {
-            $contadorInmuebles++;
-            $img=explode('.',$fl["fotoURL"]);
+
+
+
+  
+  $img=explode('.',$fl["fotoURL"]);
+
+  if($contadorInmuebles<$_AS['maximoInmuebles'])
+  {
+      $contadorInmuebles++;
 ?>
-            <div class="col-xs-6 col-lg-4">
-                <a  data-toggle="modal" data-target="#fichaTecnica<?php echo $fl['id'] ?>">
-                    <div class="item">
-                      <figure><img width="100%" src="publico/?a=<?php echo $img[0]; ?>"></figure>
-                      <h2><?php echo $fl["titulo"]; ?></h2>
-                      <p>$ <?php echo number_format($fl["precio"]); ?></p>
-                    </div>
-                </a>
-            </div><!--/.col-xs-6.col-lg-4-->
+  <div class="col-xs-6 col-lg-4">
+      <a href="#"  data-toggle="modal" data-target="#fichaTecnica<?php echo $fl['id'] ?>">
+          <div class="item">
+            <figure><img width="100%" src="<?php echo $_AS['urlPublico'] ?>?a=<?php echo $img[0]; ?>"></figure>
+            <h2><?php echo $fl['titulo']; ?></h2>
+            <h3><?php 
+    echo ucfirst ($_GLOBAL->tipoInmueble->$fl['tipoInmueble']); 
+
+    if($fl['operacionInmueble']!='')
+    {
+      echo ' en '.$_GLOBAL->operacionInmueble->$fl['operacionInmueble'];
+    }
+            ?></h3>
+            <img class='logo' src="<?php echo $_AS['urlPublico'] ?>Usuario<?php echo $fl['id_Usuario'] ?>.jpg">
+            <p class="precio">$ <?php echo number_format($fl["precio"]); ?></p>
+          </div>
+      </a>
+  </div><!--/.col-xs-6.col-lg-4-->
+
 
 
 
 <!-- Large modal -->
 
 <div class="modal fade" id="fichaTecnica<?php echo $fl['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="colonia" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="colonia"><?php echo $fl["titulo"]; ?></h4>
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+<h4 class="modal-title" id="colonia"><?php echo $fl["titulo"]; ?></h4>
+</div>
+<div class="modal-body">
+  <div class="container-fluid">        
+    <div class="row">
+      <div class="col-xs-12 col-sm-7 col-lg-7">
+        <img width="100%" src="<?php echo $_AS['urlPublico'] ?>?a=<?php echo $img[0]; ?>">
       </div>
-      <div class="modal-body">
-        <div class="row">
+      <div class="col-xs-12 col-sm-5 col-lg-5">
+        <p><?php echo $fl['descripcion'] ?></p>
+        <p class="precio">Precio: $ <?php echo number_format($fl["precio"]); ?></p>
+
+
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Datos de contacto
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <div class="row fichaInmobiliaria">
+            <div class="col-xs-4 col-sm-5 col-lg-4"><img class='logo' src="<?php echo $_AS['urlPublico'] ?>Usuario<?php echo $fl['id_Usuario'] ?>.jpg"></div>
+            <div class="col-xs-8 col-sm-7 col-lg-8">
+<strong><?php echo $fl["nombreComercial"]; ?></strong><br>
+<?php 
+if(!empty($fl['telefono']))
+{
+  echo '<a href="tel:'.$fl['telefono'].'" class="btn btn-success"><span class="glyphicon glyphicon-earphone"></span> '.$fl['telefono'].' </a>';
+}
+?>
+
+</div>
 
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <div class="row fichaAsesor">
+          <h4>Asesor inmobiliario</h4>
+            <div class="col-xs-8 col-sm-7 col-lg-8">
+              <strong><?php echo $fl["contacto"]; ?></strong>
+              <?php 
+if(!empty($fl['campo2']))
+{
+  echo '<a href="tel:'.$fl['campo2'].'" class="btn btn-success"><span class="glyphicon glyphicon-earphone"></span> '.$fl['campo2'].' </a>';
+}
 
+
+?>
+            </div>
+            <div class="col-xs-4 col-sm-5 col-lg-4">
+              <img class="foto" src="<?php echo $_AS['urlPublico'] ?>Usuario<?php echo $fl['id_Usuario'] ?>aa.jpg">
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Tabla de detalles
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        <table class="table table-striped">
+<?php if(!empty($fl['terreno'])) { ?>
+          <tr><td>Terreno</td><td><?php echo number_format($fl['terreno']); ?> m<sup>2</sup></td></tr><?php } ?>
+<?php if(!empty($fl['construccion'])) { ?>
+          <tr><td>Construcción</td><td><?php echo number_format($fl['construccion']); ?> m<sup>2</sup></td></tr><?php } ?>
+<?php if(!empty($fl['areaDeJardin'])) { ?>
+          <tr><td>Área de jardín</td><td><?php echo number_format($fl['areaDeJardin']); ?> m<sup>2</sup></td></tr><?php } ?>
+<?php if(!empty($fl['numeroDeRecamaras'])) { ?>
+          <tr><td>Recamaras</td><td><?php echo $fl['numeroDeRecamaras']; ?></td></tr><?php } ?>
+<?php if(!empty($fl['numeroDeNiveles'])) { ?>
+          <tr><td>Niveles</td><td><?php echo $fl['numeroDeNiveles']; ?></td></tr><?php } ?>
+<?php if(!empty($fl['numeroDeBanos'])) { ?>
+          <tr><td>Baños</td><td><?php echo $fl['numeroDeBanos']; ?></td></tr><?php } ?>
+<?php if(!empty($fl['cocheraSinTecho'])) { ?>
+          <tr><td>Cochera sin techar</td><td><?php echo $fl['cocheraSinTecho']; ?></td></tr><?php } ?>
+<?php if(!empty($fl['cocheraTechada'])) { ?>
+          <tr><td>Cochera techada</td><td><?php echo $fl['cocheraTechada']; ?></td></tr><?php } ?>
+
+        </table>
       </div>
     </div>
   </div>
@@ -160,42 +288,59 @@ while($fl=mysqli_fetch_array($rs))
 
 
 
+
+
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+</div>
+</div>
+</div>
+</div>
+
 <?php
-            if(empty($contInmuebles['tipoInmueble'][$fl['tipoInmueble']]))
-            {
-                $contInmuebles['tipoInmueble'][$fl['tipoInmueble']]=1;
-            }
-            else
-            {
-                $contInmuebles['tipoInmueble'][$fl['tipoInmueble']]++;        
-            }
+  }
 
-            if(empty($contInmuebles['operacionInmueble'][$fl['operacionInmueble']]))
-            {
-                $contInmuebles['operacionInmueble'][$fl['operacionInmueble']]=1;
-            }
-            else
-            {
-                $contInmuebles['operacionInmueble'][$fl['operacionInmueble']]++;
-            }
-            if(empty($contInmuebles['ciudad'][$fl['ciudad']]))
-            {
-                $contInmuebles['ciudad'][$fl['ciudad']]=1;
-            }
-            else
-            {
-                $contInmuebles['ciudad'][$fl['ciudad']]++;
-            }
+  if(empty($contInmuebles['tipoInmueble'][$fl['tipoInmueble']]))
+  {
+      $contInmuebles['tipoInmueble'][$fl['tipoInmueble']]=1;
+  }
+  else
+  {
+      $contInmuebles['tipoInmueble'][$fl['tipoInmueble']]++;        
+  }
 
-    
+  if(empty($contInmuebles['operacionInmueble'][$fl['operacionInmueble']]))
+  {
+      $contInmuebles['operacionInmueble'][$fl['operacionInmueble']]=1;
+  }
+  else
+  {
+      $contInmuebles['operacionInmueble'][$fl['operacionInmueble']]++;
+  }
+  if(empty($contInmuebles['ciudad'][$fl['ciudad']]))
+  {
+      $contInmuebles['ciudad'][$fl['ciudad']]=1;
+  }
+  else
+  {
+      $contInmuebles['ciudad'][$fl['ciudad']]++;
+  }
 
-        }
-    }
 }
 
 ?>
 
           </div><!--/row-->
+
+
         </div><!--/.col-xs-12.col-sm-9-->
 
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
