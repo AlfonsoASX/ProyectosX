@@ -3,6 +3,16 @@ RewriteEngine On
 RewriteRule ^([a-zA-Z0-9]+).as$ index.php?tipoInmueble=$1 [L,NC]
 
 # Modulos con marca
-RewriteRule ^([a-zA-Z0-9-]+)-en-([a-zA-Z0-9-]+).as$ index.php?tipoInmueble=$1&operacionInmueble=$2 [L,NC]
-RewriteRule ^([a-zA-Z0-9-]+)-en-([a-zA-Z0-9-]+)-en-([a-zA-Z0-9áéíóúÁÉÍÓÚÑñ-]+).as$ index.php?tipoInmueble=$1&operacionInmueble=$2&ciudad=$3 [L,NC]
-RewriteRule ^casa-([0-9]+).as$ index.php?module=auto&id=$1 [L,NC]
+RewriteRule ^inmueble$ index.php [L,NC]
+
+RewriteRule ^(.+).a$ index.php?tipoInmueble=$1 [L,NC]
+RewriteRule ^inmueble-en-(.+).s$ index.php?operacionInmueble=$1 [L,NC]
+RewriteRule ^inmueble-en-la-ciudad-de-(.+).x$ index.php?ciudad=$1 [L,NC]
+
+RewriteRule ^(.+)-en-(.+).as$ index.php?tipoInmueble=$1&operacionInmueble=$2 [L,NC]
+RewriteRule ^(.+)-en-la-ciudad-de-(.+).ax$ index.php?tipoInmueble=$1&ciudad=$2 [L,NC]
+RewriteRule ^inmueble-en-(.+)-en-la-ciudad-de-(.+).sx$ index.php?operacionInmueble=$1&ciudad=$2 [L,NC]
+
+RewriteRule ^(.+)-en-(.+)-en-la-ciudad-de-(.+).asx$ index.php?tipoInmueble=$1&operacionInmueble=$2&ciudad=$3 [L,NC]
+
+RewriteRule ^([a-z]+)-([0-9]+).as$ index.php?id=$1 [L,NC]

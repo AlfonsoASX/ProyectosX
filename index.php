@@ -95,7 +95,7 @@ if(!empty($_GET['id']))
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
 
       </div>
     </div>
@@ -107,47 +107,12 @@ if(!empty($_GET['id']))
 ?>
           <div class="row">
 <?php
-$sql="SELECT 
-      Inmueble.id, 
-      Inmueble.id_Usuario, 
-      Inmueble.status, 
-      Inmueble.tipoInmueble, 
-      Inmueble.operacionInmueble, 
-      Inmueble.titulo, 
-      Inmueble.fotoURL,  
-      Inmueble.descripcion,  
-      Inmueble.detalles,  
-      Inmueble.precio,
-      Inmueble.ciudad,
-      Inmueble.antiguedad,  
-      Inmueble.terreno,  
-      Inmueble.construccion,  
-      Inmueble.areaDeJardin,  
-      Inmueble.numeroDeRecamaras,  
-      Inmueble.numeroDeNiveles,  
-      Inmueble.numeroDeBanos,  
-      Inmueble.cocheraSinTecho,  
-      Inmueble.cocheraTechada,  
-      Usuario.nombreComercial,
-      Usuario.contacto,
-      Usuario.campo2,
-      Usuario.campo3,
-      Usuario.campo4,
-      Usuario.telefono,
-      Usuario.nextel,
-      Asesor.nombre nombreAsesor,      
-      Asesor.foto fotoAsesor,
-      Asesor.datos datosAsesor
 
-      FROM `Inmueble` 
 
-      LEFT JOIN Usuario ON Usuario.id = Inmueble.id_Usuario
-      LEFT JOIN Asesor ON Asesor.id = Inmueble.id_Asesor
-      WHERE Inmueble.precio!=0 
-      AND Inmueble.status!=3 
-      AND Inmueble.fotoURL !='' 
-      AND Inmueble.estadoInmobiliaria=0
-";
+
+$sql=armaSQLbuscarInmuebles();
+
+
 $rs= mysqli_query ($db,$sql);
 $contadorInmuebles=0;
 
@@ -206,16 +171,16 @@ while($fl=mysqli_fetch_array($rs))
 
 
 
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+<div class="panel-group" id="accordion<?php echo $fl['id'] ?>" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
+    <div class="panel-heading" role="tab" id="headingOne<?php echo $fl['id'] ?>">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <a data-toggle="collapse" data-parent="#accordion<?php echo $fl['id'] ?>" href="#collapseOne<?php echo $fl['id'] ?>" aria-expanded="true" aria-controls="collapseOne<?php echo $fl['id'] ?>">
           Datos de contacto
         </a>
       </h4>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+    <div id="collapseOne<?php echo $fl['id'] ?>" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne<?php echo $fl['id'] ?>">
       <div class="panel-body">
         <div class="row fichaInmobiliaria">
             <div class="col-xs-4 col-sm-5 col-lg-4"><img class='logo' src="<?php echo $_AS['urlPublico'] ?>Usuario<?php echo $fl['id_Usuario'] ?>.jpg"></div>
@@ -252,14 +217,14 @@ if(!empty($fl['campo2']))
     </div>
   </div>
   <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo">
+    <div class="panel-heading" role="tab" id="headingTwo<?php echo $fl['id'] ?>">
       <h4 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion<?php echo $fl['id'] ?>" href="#collapseTwo<?php echo $fl['id'] ?>" aria-expanded="false" aria-controls="collapseTwo<?php echo $fl['id'] ?>">
           Tabla de detalles
         </a>
       </h4>
     </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+    <div id="collapseTwo<?php echo $fl['id'] ?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo<?php echo $fl['id'] ?>">
       <div class="panel-body">
         <table class="table table-striped">
 <?php if(!empty($fl['terreno'])) { ?>
@@ -298,7 +263,7 @@ if(!empty($fl['campo2']))
   </div>
 </div>
 <div class="modal-footer">
-<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
 
 </div>
 </div>
@@ -308,31 +273,8 @@ if(!empty($fl['campo2']))
 <?php
   }
 
-  if(empty($contInmuebles['tipoInmueble'][$fl['tipoInmueble']]))
-  {
-      $contInmuebles['tipoInmueble'][$fl['tipoInmueble']]=1;
-  }
-  else
-  {
-      $contInmuebles['tipoInmueble'][$fl['tipoInmueble']]++;        
-  }
 
-  if(empty($contInmuebles['operacionInmueble'][$fl['operacionInmueble']]))
-  {
-      $contInmuebles['operacionInmueble'][$fl['operacionInmueble']]=1;
-  }
-  else
-  {
-      $contInmuebles['operacionInmueble'][$fl['operacionInmueble']]++;
-  }
-  if(empty($contInmuebles['ciudad'][$fl['ciudad']]))
-  {
-      $contInmuebles['ciudad'][$fl['ciudad']]=1;
-  }
-  else
-  {
-      $contInmuebles['ciudad'][$fl['ciudad']]++;
-  }
+
 
 }
 
@@ -343,74 +285,7 @@ if(!empty($fl['campo2']))
 
         </div><!--/.col-xs-12.col-sm-9-->
 
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
-          <div class="list-group">
-
-            
-<?php
-
-foreach ($_GLOBAL->operacionInmueble as $id => $valor)
-{
-    if(!empty($contInmuebles['operacionInmueble'][$id]))
-    {    
-?>
-        <a href="#" class="list-group-item"><?php echo $valor ?> (<?php echo $contInmuebles['operacionInmueble'][$id] ?>)</a>
-<?php
-    }
-    else
-    {
-?>
-        <a href="#" class="list-group-item"><?php echo $valor ?></a>
-<?php
-
-    }
-}
-?>
-          </div>
-<div class="list-group">
-
-            
-<?php
-
-foreach ($_GLOBAL->tipoInmueble as $id => $valor)
-{
-    if(!empty($contInmuebles['tipoInmueble'][$id]))
-    {
-
-?>
-<a href="#" class="list-group-item"><?php echo $valor ?> (<?php echo $contInmuebles['tipoInmueble'][$id] ?>)</a>
-<?php
-    }
-}
-?>
-          </div> 
-          <div class="list-group">
-
-            
-<?php
-
-$sql="SELECT DISTINCT ciudad FROM Inmueble WHERE status=1 AND ciudad!=''";
-$rs= mysqli_query ($db,$sql);
-
-
-while($fl=mysqli_fetch_array($rs))
-{
-    if(!empty($contInmuebles['ciudad'][$fl['ciudad']]))
-    {    
-?>
-        <a href="#" class="list-group-item"><?php echo $fl['ciudad'] ?> (<?php echo $contInmuebles['ciudad'][$fl['ciudad']] ?>)</a>
-<?php
-    }
-    else
-    {
-?>
-        <a href="#" class="list-group-item"><?php echo $fl['ciudad'] ?></a>
-<?php
-
-    }
-}
-?>
-          </div> </div><!--/.sidebar-offcanvas-->
+        <?php require 'ctn/barraLateral.php';?>
       </div><!--/row-->
 
       <hr>
