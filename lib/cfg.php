@@ -13,6 +13,15 @@ if('localhost'==$_SERVER['SERVER_NAME'])
     'urlPublico'      => 'http://localhost:2110/Control.mx/publico/',
     'maximoInmuebles' => 6,
     );
+  $_AS= array(
+    'host'            => '174.136.30.159',
+    'user'            => 'control_admin',
+    'pass'            => '$?]fr*?J7Z]Q',
+    'basedatos'       => 'control_mx',
+    'dominio'         => 'http://casasx.com/',
+    'urlPublico'      => 'http://control.mx/publico/',
+    'maximoInmuebles' => 100,
+    );  
 }
 else
 {//Configuración producción

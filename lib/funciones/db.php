@@ -122,6 +122,8 @@ function armaSQLbuscarInmuebles()
 	}
 
 
+$sql.=" ORDER BY fechaCreado DESC";
+
 	return $sql;
 
 }
