@@ -6,12 +6,12 @@ $user="ganas001";
 $pass="gananuevo";
 $basedatos="ganas001_cine";
 
-
+/*
 $host="localhost";
 $user="root";
 $pass="root";
 $basedatos="veo";
-
+*/
 
 
 

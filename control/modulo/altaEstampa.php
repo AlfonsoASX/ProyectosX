@@ -4,14 +4,9 @@
 if(!empty($_POST['titulo']))
 {
 
-
-
-
-
- $sql = "INSERT INTO `estampa` (`id`, `id_usuario`, `id_usuario_admin`, `titulo`, `categoria`, `urlPortada`, `urlCupon`, `visitas`, `tiraje`, `tipo`, `momento`, `estado`) 
-VALUES (null,".$_POST['id_usuario'].",".datoUsuario($_AS['clave'], 'id', $db).",'".$_POST['titulo']."','".$_POST['categoria']."','".as_subirImagen($_FILES['urlPortada'])."','".as_subirImagen($_FILES['urlCupon'])."',0,'".$_POST['tiraje']."','".$_POST['tipo']."',NOW(),'AC')";
-
-$result= mysqli_query ($db,$sql);
+  $sql = "INSERT INTO `estampa` (`id`, `id_usuario`, `id_pedido`, `titulo`, `categoria`, `urlPortada`, `urlCupon`, `visitas`, `tiraje`, `tipo`, `asKey`, `momento`, `estado`) 
+          VALUES (null,".$_AS['key'].",".$_POST['id_pedido'].",'".$_POST['titulo']."','".$_POST['categoria']."','".as_subirImagen($_FILES['urlPortada'])."','".as_subirImagen($_FILES['urlCupon'])."',0,'".$_POST['tiraje']."','".$_POST['tipo']."',".$_AS['key'].",NOW(),'AC')";
+  $result= mysqli_query ($db,$sql);
 ?>
 
 <div class="alert alert-success" role="alert">La estampa fue dado de alta con éxito</div>
@@ -23,7 +18,6 @@ else
 
 ?>
 <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
-<input type="hidden" value="<?php echo $_GET["id"] ?>" name="id_usuario" id="id_usuario">  
 <h3>Diseño</h3>
 
   <div class="form-group">
@@ -80,17 +74,20 @@ else
   </div>
 
     <div class="form-group">
-    <label for="tiraje" class="col-sm-3 control-label">Paquete contratado.</label>
+    <label for="tiraje" class="col-sm-3 control-label">Pedido contratado</label>
     <div class="col-sm-9">
 
-      <select name="id_paquete" id="id_paquete" class="form-control">
+      <select name="id_pedido" id="id_pedido" class="form-control">
 <?php
-  $sql="SELECT * FROM `paquete` WHERE estado='AC' AND claveProducto='RYR'";
+  $sql="SELECT pedido.id, usuario.nombreComercial FROM `pedido` 
+        LEFT JOIN usuario ON usuario.id = pedido.id_usuario 
+        WHERE pedido.id_producto=1
+        AND pedido.estado='AC'";
+
   $result= mysqli_query ($db,$sql);
   while($fl=mysqli_fetch_array($result))
-  {
-?>
-        <option>Vigencia de <?php echo $fl['diasVigencia'] ?> días por $<?php echo $fl['precio'] ?></option>
+  { ?>
+        <option value="<?php echo $fl['id']; ?>">Folio: <?php echo $fl['id']; ?> - <?php echo $fl['nombreComercial']; ?> </option>
 <?php
   }
 ?>
@@ -104,7 +101,7 @@ else
 
     <div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">
-      <button type="submit" class="btn btn-primary">Dar de alta pedido</button>
+      <button type="submit" class="btn btn-primary">Dar de alta estampa</button>
     </div>
   </div>
 </form>

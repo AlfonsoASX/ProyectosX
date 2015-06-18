@@ -8,7 +8,7 @@
 	{
 		$filas.='
 		<tr>
-		<td>			
+		<td>
 		<a href="?modulo=altaPedido&menu=admingral&id_producto='.$_GET['id_producto'].'&id_usuario='.$fl['id'].'" class="btn btn-primary"><span class="glyphicon glyphicon-shopping-cart"></span> Dar de alta pedido</a>
 		</td>
 		<td>'.$fl['nombreComercial'].'</td>

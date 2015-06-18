@@ -30,7 +30,7 @@ if(!empty($_GET['accion']))
 		<td><img width="150px" src="../img/'.$fl['urlPortada'].'"></td>
 		<td><img width="150px" src="../img/'.$fl['urlCupon'].'"></td>
 		<td>'.number_format($fl['tiraje']).'</td>
-		<td>'.explode(' ',$fl['momento'])[0].'</td>
+		<td>'.$fl['momento'].'</td>
 		</tr>';
 	}
 ?>

@@ -2,11 +2,18 @@
 <?php
 if(!empty($_POST['id_usuario']))
 {
-$sql = "";
+
+$sql = "INSERT INTO 
+
+`pedido`(`id`, `id_usuario`, `id_producto`, `id_paquete`, `fechaInicio`, `formaPago`, `pagado`, `autoRenovacion`, `asKey`, `momento`, `estado`) 
+VALUES ('',".$_POST['id_usuario'].",".$_GET['id_producto'].",".$_POST['id_paquete'].",'".$_POST['fechaInicio']."','','','','','','AC')";
+
+
+
 $result= mysqli_query ($db,$sql);
 ?>
 
-<div class="alert alert-success" role="alert">La estampa fue dado de alta con éxito</div>
+<div class="alert alert-success" role="alert">El pedido fue dado de alta con éxito</div>
 
 <?php
 }
@@ -47,15 +54,8 @@ else
     </div>
   </div>
 
-    <div class="form-group">
-    <label for="id_paquete" class="col-sm-3 control-label">Paquete contratado.</label>
-    <div class="col-sm-9">
 
-      <select name="id_paquete" id="id_paquete" class="form-control">
-        <option></option>
-      </select>
-    </div>
-  </div>
+
 
     <div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">

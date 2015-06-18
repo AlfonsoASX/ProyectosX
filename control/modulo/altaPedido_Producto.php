@@ -8,6 +8,6 @@
 	while($fl=mysqli_fetch_array($result))
 	{
 ?>
-<a class="btn btn-primary btn-lg " href="?modulo=altaPedido_usuario&menu=admingral&id_producto=<?php echo $fl['id']; ?>"><?php echo $fl['nombre']; ?><br>(<?php echo $fl['dominio']; ?>) </a> <?php
+<a class="btn btn-primary btn-lg " href="?modulo=altaPedido_Usuario&menu=admingral&id_producto=<?php echo $fl['id']; ?>"><?php echo $fl['nombre']; ?><br>(<?php echo $fl['dominio']; ?>) </a> <?php
 	}
 ?>
