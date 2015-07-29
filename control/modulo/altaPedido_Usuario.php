@@ -30,6 +30,4 @@
 			<?php echo $filas; ?>
 	</table>
 </div>
-<?php
 
-?>

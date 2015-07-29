@@ -31,8 +31,9 @@ else
     <label for="tipo" class="col-sm-3 control-label">Tipo</label>
     <div class="col-sm-9">
       <select name="tipo" id="tipo" class="form-control">
-        <option value="RG">Regalo</option>
-        <option value="RM">Remate</option>
+        <option value="REG">Regalo</option>
+        <option value="REM">Remate</option>
+        <option value="VOL">Volante</option>
       </select>
     </div>
   </div>

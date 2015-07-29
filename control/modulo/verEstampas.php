@@ -21,12 +21,18 @@ if(!empty($_GET['accion']))
 	$result= mysqli_query ($db,$sql);
 	while($fl=mysqli_fetch_array($result))
 	{
+		$fecha=explode(' ',$fl['momento']);
+
+
+		$partesFecha=explode('-',$fecha['0']);
+
+
 		$filas.='
 		<tr>
 		<td>
 			<a href="?modulo='.$_GET['modulo'].'&accion=borrar&id='.$fl['id'].'" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></a>
 		</td>
-		<td>'.$fl['tipo'].str_pad($fl['id_usuario'], 3, "0", STR_PAD_LEFT).str_pad($fl['id'], 5, "0", STR_PAD_LEFT).'</td>
+		<td>'.str_pad($fl['id'], 4, "0", STR_PAD_LEFT).$partesFecha['1'].$partesFecha['0'].$fl['tipo'].'</td>
 		<td><img width="150px" src="../img/'.$fl['urlPortada'].'"></td>
 		<td><img width="150px" src="../img/'.$fl['urlCupon'].'"></td>
 		<td>'.number_format($fl['tiraje']).'</td>

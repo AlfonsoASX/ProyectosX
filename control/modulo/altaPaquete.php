@@ -49,9 +49,9 @@ else
   </div>
 
   <div class="form-group">
-    <label for="numeroPublicaciones" class="col-sm-3 control-label">Número de publicaciones</label>
+    <label for="numeroPublicaciones" class="col-sm-3 control-label">Tiraje</label>
     <div class="col-sm-9">
-      <input type="number" class="form-control" id="numeroPublicaciones" name="numeroPublicaciones" placeholder="Número de estampas, empleos o artículos a los que tiene derecho">
+      <input type="number" class="form-control" id="numeroPublicaciones" name="numeroPublicaciones" placeholder="Número de impactos incluidos">
     </div>
   </div>
 
